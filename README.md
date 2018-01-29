@@ -23,8 +23,4 @@
   * **Promociones**: El usuario administrador podrá añadir, modificar o eliminar promociones sobre un determinado tipo de prendas aplicando en base a la regla indicada un descuento.
   * **Facturación**: Se mostrará el resumen de facturación mensual, pudiendo incluir alguna modificación temporal previa exportación del pdf.
   * **Facturas**: Si el cliente lo solicita, se podrá exportar un pdf con la factura asociada a uno o varios tikets de ese mismo cliente.
-  
-  <h3>Tecnologías:</h3>
-  
-  	PDF
- 
+  * **Historial empleado**: Se podrán consultar las horas de cada empleado (el administrador), o las propias, cada empleado.
