@@ -1,5 +1,12 @@
-# TintoMax
-<h2>Entidades:</h2>
+# TintoMax - Grupo 6
+<h2>Entidades:</h2> </br>
+* **Usuario**: 
+* **Empleado**: 
+* **Prenda**: 
+* **Promoción**: 
+* **Fichar**:
+* **Tiket**: 
+* **Factura**: 
 
 <h3>Usuario:</h3></br>
 
@@ -22,5 +29,7 @@
 	
   * **Promociones**: El usuario administrador podrá añadir, modificar o eliminar promociones sobre un determinado tipo de prendas aplicando en base a la regla indicada un descuento.
   * **Facturación**: Se mostrará el resumen de facturación mensual, pudiendo incluir alguna modificación temporal previa exportación del pdf.
-  * **Facturas**: Si el cliente lo solicita, se podrá exportar un pdf con la factura asociada a uno o varios tikets de ese mismo cliente.
+  * **Facturas**: Si el cliente lo solicita, se podrá exportar un pdf con la factura asociada a uno o varios tikets de ese mismo cliente, además de mandarla por e-mail.
   * **Historial empleado**: Se podrán consultar las horas de cada empleado (el administrador), o las propias, cada empleado.
+  * **Recordatorio**: Si han pasado 2 meses desde la fecha de recogida, se enviará un e-mail al cliente (si tiene) recordándole que tiene prendas pendientes de recogida. Si han pasado 3 meses desde la fecha de recogida, se avisará de que el tiket sufrirá un recargo por demora. Un mes antes de cumplir la prenda 2 años se avisará de la finalización del periodo legal de conservación de la prenda en el establecimiento.
+   <h3>Tecnologías:</h3>
