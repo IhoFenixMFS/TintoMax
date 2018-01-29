@@ -17,3 +17,10 @@
   * **Rellenar ticket**:Una vez introducido el DNI, el administrador generará los datos de la factura.</br>
   -Promociones: El administrador podrá generar promociones, las cuales se les notificaran a los clientes a la hora de realizar el pago.</br>
   * **Servicios**:El administrador podrá especificar los servicios que ofrece la tintoneria.</br>
+  
+  <h3>Funcionalidad avanzada:</h3>
+	
+  * **Promociones**: El usuario administrador podrá añadir, modificar o eliminar promociones sobre un determinado tipo de prendas aplicando en base a la regla indicada un descuento.
+  * **Facturación**: Se mostrará el resumen de facturación mensual, pudiendo incluir alguna modificación temporal previa exportación del pdf.
+  * **Facturas**: Si el cliente lo solicita, se podrá exportar un pdf con la factura asociada a uno o varios tikets de ese mismo cliente.
+ 
