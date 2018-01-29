@@ -2,7 +2,7 @@
 <h3>Entidades:</h3>
 
 Usuario:</br>
-<a>
+<a size:6pt>
 		Administrador:Se encargará de configurar la página, modificaciones …      </br> 		
 		Cliente:Se logueará con su DNI y podrá ver su listado de pedidos,además del listado de precios.</br>
 		Anónimo:Solo podrá ver la página principal y el listado de precios.</br>
