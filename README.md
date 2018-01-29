@@ -1,5 +1,5 @@
 # TintoMax
-Entidades:
+<h1>Entidades:</h1>
 
 Usuario:
 		Administrador:Se encargará de configurar la página, modificaciones …       		
