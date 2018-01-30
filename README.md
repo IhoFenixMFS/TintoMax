@@ -1,5 +1,5 @@
 # TintoMax - Grupo 6
-##Componentes del Grupo
+##**Componentes del Grupo**<p>
 **Alejandro García Luna,a.garcialun@alumnos.urjc.es,AlejandroGarcíaLuna**</br>
 **Marina Fernández Suárez,m.fernandezsu@alumnos.urjc.es,IhoFenix**</br>
 **Oscar khanji dobosh,o.khanji.2016@alumnos.urjc.es,khenji55**</br>
