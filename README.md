@@ -42,4 +42,4 @@
    <h3>Tecnologías:</h3>
    
    <h4>Diagrama</h4>
-   !(https://github.com/IhoFenix/TintoMax/blob/master/Diagram.png)
+   ![diagram](https://user-images.githubusercontent.com/12202594/35738061-f6ddb7e0-082d-11e8-9ce4-cbcc76db0c09.png)
