@@ -41,5 +41,6 @@
   * **Recordatorio**: Si han pasado 2 meses desde la fecha de recogida se enviará un e-mail al cliente (si tiene) recordándole que tiene prendas pendientes de recogida. Si han pasado 3 meses desde la fecha de recogida se avisará de que el ticket sufrirá un recargo por demora. Un mes antes de cumplir la prenda 2 años se avisará de la finalización del periodo legal de conservación de la prenda en el establecimiento.
    <h3>Tecnologías:</h3>
    
-   <h4>Diagrama</h4>
-   ![diagram](https://user-images.githubusercontent.com/12202594/35738061-f6ddb7e0-082d-11e8-9ce4-cbcc76db0c09.png)
+   <h4>Diagrama:</h4>
+   
+![diagram](https://user-images.githubusercontent.com/12202594/35738061-f6ddb7e0-082d-11e8-9ce4-cbcc76db0c09.png)
