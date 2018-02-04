@@ -1,10 +1,10 @@
-<h1>0</h1><h2>*INICIO*</h2><p>
+<h1>0</h1><h2>INICIO</h2><p>
 -Login / logout	=>	pop-up login<p>
--Listados	=>	*1*<p>
--Tiket  	=>	*2*<p>
--Inf. Contacto y como llegar	=>	*4*<p>
--Fichar	=>	*5*<p>
--Administrar	=>	*6*<p>
+-Listados	=>	**1**<p>
+-Tiket  	=>	**2**<p>
+-Inf. Contacto y como llegar	=>	**4**<p>
+-Fichar	=>	**5**<p>
+-Administrar	=>	**6**<p>
 <p>
 <h1>1</h1><h2>*LISTADOS*</h2><p>
 -Precios	=>	Vista del listado<p>
