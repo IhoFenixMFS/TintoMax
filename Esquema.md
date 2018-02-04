@@ -1,21 +1,19 @@
 <h1>0</h1><h2>INICIO</h2> </br>
-* Login / logout	=>	pop-up login </br>
-* Listados	=>	1 </br>
+* Login / logout => pop-up login </br>
+* Listados => 1 </br>
 * Tiket  	=>	2 </br>
 * Inf. Contacto y como llegar	=>	4 </br>
 * Fichar	=>	5 </br>
 * Administrar	=>	6 </br>
- </br>
+</br>
 <h1>1</h1><h2>LISTADOS</h2> </br>
 * Precios	=>	Vista del listado </br>
 * Tikets	=>	Vista de los tikets asociados al cliente </br>
 * Buscar	=>	pop-up buscar	=>	Vista del resultado de la búsqueda </br>
  </br>
 <h1>2</h1><h2>TIKET</h2> </br>
-* DNI	=>	Si se encuentra se rellenan los campos (Nombre, Apellidos, Dirección, e-mail </br>
-	=>	Si no, pop-up “El cliente no se encuentra, ¿dar de alta?  </br>
-		* SI -> 7  </br>
-		* No -> limpia los campos </br>
+* DNI	=>	Si se encuentra se rellenan los campos (Nombre, Apellidos, Dirección, e-mail) </br>
+	=>	Si no, pop-up “El cliente no se encuentra, ¿dar de alta?" - SI -> 7 ; No -> limpia los campos </br>
 * Recogida	=>	Botón calendario para seleccionar fecha </br>
 * Imprimir	=>	3 </br>
 * Botón prenda	=>	8 </br>
@@ -74,12 +72,12 @@
 * DNI </br>
 * Tlf. </br>
 * E-mail </br>
-* Fecha Alta	=>	Botón calendario </br>
-* Password	=>	se muestra la pass automática al pulsar comprobar y estar todo correcto </br>
-* Comprobar	=>	pop-up:
-			* “El cliente ya existe” (limpia los campos) </br>
-			* “El cliente no existe” (activa el botón guardar, genera la password) </br>
-* Guardar	=>	Guarda los datos en la BBDD </br>
+* Fecha Alta => Botón calendario </br>
+* Password => se muestra la pass automática al pulsar comprobar y estar todo correcto </br>
+* Comprobar => pop-up:
+  * “El cliente ya existe” (limpia los campos) </br>
+  * “El cliente no existe” (activa el botón guardar, genera la password) </br>
+* Guardar => Guarda los datos en la BBDD </br>
  </br>
 <h1>11</h1><h2>MODIFICAR PRECIOS</h2> </br>
 * Buscar prenda	=>	busca por nombre y se cargan los precios de la BBDD </br>
@@ -106,4 +104,3 @@
 * Generar	=>	Genera la vista previa de la facturación  </br>
 * Imprimir	=>	Imprime y guarda el pdf </br>
  </br>
-
