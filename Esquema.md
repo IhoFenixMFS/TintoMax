@@ -49,9 +49,7 @@
 * Tlf. </br>
 * E-mail </br>
 * Password	=>	se muestra la pass automática al pulsar comprobar y estar todo correcto </br>
-* Comprobar	=>	pop-up:  </br>
-			* “El cliente ya existe” (limpia los campos) </br>
-			* “El cliente no existe” (activa el botón guardar, genera la password) </br>
+* Comprobar => pop-up: “El cliente ya existe” (limpia los campos) ; “El cliente no existe” (activa el botón guardar, genera la password) </br>
 * Guardar	=>	Guarda los datos en la BBDD </br>
  </br>
 <h1>8</h1><h2>SERVICIO</h2> </br>
@@ -74,9 +72,7 @@
 * E-mail </br>
 * Fecha Alta => Botón calendario </br>
 * Password => se muestra la pass automática al pulsar comprobar y estar todo correcto </br>
-* Comprobar => pop-up:
-  * “El cliente ya existe” (limpia los campos) </br>
-  * “El cliente no existe” (activa el botón guardar, genera la password) </br>
+* Comprobar => pop-up: “El cliente ya existe” (limpia los campos) ; “El cliente no existe” (activa el botón guardar, genera la password) </br>
 * Guardar => Guarda los datos en la BBDD </br>
  </br>
 <h1>11</h1><h2>MODIFICAR PRECIOS</h2> </br>
