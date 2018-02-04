@@ -98,7 +98,7 @@
 * Mapa	=>	imagen del mapa	=>	botón nueva imagen </br>
 * Actualizar 	=>	pup-up “Datos actualizados” </br>
  </br>
-<h1>13</h1><h2>*FACTURACIÓN*</h2> </br>
+<h1>13</h1><h2>FACTURACIÓN</h2> </br>
 * De	=>	botón calendario para seleccionar fecha </br>
 * A	=>	botón calendario para seleccionar fecha </br>
 * Generar	=>	Genera la vista previa de la facturación  </br>
