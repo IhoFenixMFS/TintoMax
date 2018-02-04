@@ -29,17 +29,22 @@
 * Cómo llegar </br>
 * Imagen mapa </br>
  </br>
-<h1>5</h1><h2>FICHAR</h2> </br>
-* Vista previa de las horas del mes del empleado </br>
-* Fichar entrada/salida	=>	pop-up: A fichado su entrada/salida a las hh:mm del día dd/mm/aaa </br>
+ <h1>5</h1><h2>EDITAR INF. CONTACTO Y COMO LLEGAR</h2> </br>
+* Tlf contacto </br>
+* Dirección </br>
+* E-mail </br>
+* Autobuses </br>
+* Metro </br>
+* Mapa	=>	imagen del mapa	=>	botón nueva imagen </br>
+* Actualizar 	=>	pup-up “Datos actualizados” </br>
  </br>
 <h1>6</h1><h2>ADMINISTRAR</h2> </br>
+* Editar inf. Contacto y como legar	=>	5 </br>
 * Nuevo cliente	=>	7 </br>
 * Factura	=>	9 </br>
 * Nuevo empleado	=>	10 </br>
 * Modificar precios	=>	11 </br>
-* Editar inf. Contacto y como legar	=>	13 </br>
-* Facturación	=>	14 </br>
+* Facturación	=>	12 </br>
  </br>
 <h1>7</h1><h2>NUEVO CLIENTE</h2> </br>
 * Nombre </br>
@@ -85,16 +90,7 @@
 * Limpieza nuevo s/iva	=>	Calcula el precio nuevo s/iva </br>
 * Guardar	=>	pop-up “Precios actualizados” </br>
  </br>
-<h1>12</h1><h2>EDITAR INF. CONTACTO Y COMO LLEGAR</h2> </br>
-* Tlf contacto </br>
-* Dirección </br>
-* E-mail </br>
-* Autobuses </br>
-* Metro </br>
-* Mapa	=>	imagen del mapa	=>	botón nueva imagen </br>
-* Actualizar 	=>	pup-up “Datos actualizados” </br>
- </br>
-<h1>13</h1><h2>FACTURACIÓN</h2> </br>
+<h1>12</h1><h2>FACTURACIÓN</h2> </br>
 * De	=>	botón calendario para seleccionar fecha </br>
 * A	=>	botón calendario para seleccionar fecha </br>
 * Generar	=>	Genera la vista previa de la facturación  </br>
