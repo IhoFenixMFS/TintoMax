@@ -1,5 +1,14 @@
-@mixin rotate {
-  -webkit-transform: rotate(15deg);
-  -ms-transform: rotate(15deg);
-  transform: rotate(15deg);
+// Mixins
+// Bootstrap Button Variant
+@mixin background-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@mixin body-font {
+  font-family: 'Open Sans', serif;
+}
+@mixin heading-font {
+  font-family: 'Saira Extra Condensed', serif;
 }

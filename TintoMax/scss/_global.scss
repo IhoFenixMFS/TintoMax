@@ -1,55 +1,62 @@
 // Global styling for this template
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  overflow-x: hidden;
+  @include body-font;
+  padding-top: 54px;
+  color: $gray-600;
 }
-
-body.sticky-footer {
-  margin-bottom: $sticky-footer-height;
-  .content-wrapper {
-    min-height: calc(100vh - #{$sticky-footer-height} - #{$navbar-base-height});
+@media (min-width: 992px) {
+  body {
+    padding-top: 0;
+    padding-left: $sidebar-base-width;
   }
 }
 
-body.fixed-nav {
-  padding-top: $navbar-base-height;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include heading-font;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $gray-800;
 }
 
-.content-wrapper {
-  min-height: calc(100vh - #{$sticky-footer-height});
-  padding-top: 1rem;
+h1 {
+  font-size: 6rem;
+  line-height: 5.5rem;
 }
 
-// Scroll to top button
-.scroll-to-top {
-  position: fixed;
-  right: 15px;
-  bottom: 3px;
+h2 {
+  font-size: 3.5rem;
+}
 
-  display: none;
+.subheading {
+  text-transform: uppercase;
+  font-weight: 500;
+  @include heading-font;
+  font-size: 1.35rem;
+}
 
-  width: 50px;
-  height: 50px;
-
-  text-align: center;
-
-  color: white;
-  background: fade-out($gray-800, .5);
-
-  line-height: 45px;
-  &:focus,
-  &:hover {
-    color: white;
+.list-social-icons {
+  a {
+    color: $gray-700;
+    &:hover {
+      color: $primary;
+    }
+    .fa-lg {
+      font-size: 1.75rem;
+    }
   }
-  &:hover {
-    background: $gray-800;
-  }
-  i {
-    font-weight: 800;
+}
+
+.list-icons {
+  font-size: 3rem;
+  .list-inline-item i {
+    &:hover {
+      color: $primary;
+    }
   }
 }
