@@ -42,7 +42,7 @@
    <h3>Tecnologías:</h3>
    
    <h4>Diagrama:</h4>
-   **Enlace a trello** -->https://trello.com/b/H1zxurzx
+    **Enlace a trello** -->https://trello.com/b/H1zxurzx
    <h4>Diagrama:</h4>
    
 ![diagram](https://user-images.githubusercontent.com/12202594/35738061-f6ddb7e0-082d-11e8-9ce4-cbcc76db0c09.png)
