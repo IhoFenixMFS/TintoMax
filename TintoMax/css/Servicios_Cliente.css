@@ -1,0 +1,19 @@
+
+.dropdown-toggle{
+    color:aliceblue;
+}
+.dropdown-element{
+    color:black;
+}
+.dropdown-menu{
+    position: absolute;
+    border: 2px solid black;
+    left: -35px;
+}
+href:hover{
+    color:aliceblue;
+}
+#myCarousel .carousel-caption{
+    background-color: rgba(147, 147, 147,0.5);
+    border-radius: 10px;
+}
