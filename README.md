@@ -42,7 +42,7 @@
   
    <h3>Tecnologías:</h3>
    
-    **Enlace a trello** https://trello.com/b/H1zxurzx
+  **Enlace a trello** https://trello.com/b/H1zxurzx
  
  <h4>Diagrama:</h4>
    
