@@ -21,6 +21,9 @@
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/home.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
   </head>
   <body>
 
@@ -31,16 +34,15 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
+          <ul class="nav navbar-right top-nav">
+            
             
             <!-- <li class="nav-item">
               <a class="nav-link" href="#">Ayuda</a>
             </li> -->
-          </ul>
+          
           <a class="nav-link" href="./login_cliente.html">Inicio Sesión</a>
+        </ul>
         </div>
       </nav>
     </header>
@@ -174,10 +176,10 @@
 
 
       <!-- FOOTER -->
-      <footer class="container">
-        <p class="float-right"><a href="#page-top">Volver al inicio</a></p>
-        <p>&copy; 2017-2018 TintoMax, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+      <footer>
+            <p>&copy; 2017-2018 TintoMax, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+        <button onclick="topFunction()" id="scroll-up" type="button" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-chevron-up"></i></button>
     </main>
 
     <!-- Bootstrap core JavaScript
@@ -189,5 +191,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.js"></script>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scroll-up").style.display = "block";
+            }
+            else {
+                document.getElementById("scroll-up").style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
   </body>
 </html>
