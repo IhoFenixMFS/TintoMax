@@ -50,81 +50,29 @@
         </nav>
     </header>
     <main id="page-top" role="main">
-        <div id="collapsable-content">
-            <h3 id="titulo">En esta sección encontrará una lista de todos los servicios que ha contratado con nosotros:</h3>
-            <div class="container">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                   <a class="dropdown-toggle" data-toggle="collapse" href="#collapse1">Para recoger</a>
-                </h4> </div>
-                        <div id="collapse1" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <li class="list-group-item">One</li>
-                                <li class="list-group-item">Two</li>
-                                <li class="list-group-item">Three</li>
-                                <li class="list-group-item">Four</li>
-                                <li class="list-group-item">Five</li>
-                                <li class="list-group-item">Six</li>
-                                <li class="list-group-item">Seven</li>
-                                <li class="list-group-item">Eight</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <h3 id="titulo">En esta sección encontrará una lista de todos los servicios que ha contratado con nosotros:</h3>
+        <div class="container">
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Pendientes</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">Recogidos</button>
+                
             </div>
-            <div class="container">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                  <a class="dropdown-toggle" data-toggle="collapse" href="#collapse2">Pendientes de finalización</a>
-                </h4> </div>
-                        <div id="collapse2" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <li class="list-group-item">One</li>
-                                <li class="list-group-item">Two</li>
-                                <li class="list-group-item">Three</li>
-                                <li class="list-group-item">Four</li>
-                                <li class="list-group-item">Five</li>
-                                <li class="list-group-item">Six</li>
-                                <li class="list-group-item">Seven</li>
-                                <li class="list-group-item">Eight</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div id="London" class="tabcontent">
+                <h3>London</h3>
+                <p>London is the capital city of England.</p>
             </div>
-            <div class="container">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                  <a class="dropdown-toggle" data-toggle="collapse" href="#collapse3">Completados</a>
-                </h4> </div>
-                        <div id="collapse3" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <li class="list-group-item">One</li>
-                                <li class="list-group-item">Two</li>
-                                <li class="list-group-item">Three</li>
-                                <li class="list-group-item">Four</li>
-                                <li class="list-group-item">Five</li>
-                                <li class="list-group-item">Six</li>
-                                <li class="list-group-item">Seven</li>
-                                <li class="list-group-item">Eight</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div id="Paris" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p>
             </div>
+           
         </div>
         <!-- Marketing messaging and featurettes
       ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
         <!-- /.container -->
         <!-- FOOTER -->
-        <footer class="container">
+        <footer>
             <p>&copy; 2017-2018 TintoMax, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
         </footer>
         <button onclick="topFunction()" id="scroll-up" type="button" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-chevron-up"></i></button>
@@ -159,6 +107,23 @@
     </script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 </body>
 
 </html>
