@@ -53,19 +53,145 @@
         <h3 id="titulo">En esta sección encontrará una lista de todos los servicios que ha contratado con nosotros:</h3>
         <div class="container">
             <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Pendientes</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris')">Recogidos</button>
+                <button class="tablinks" onclick="openCity(event, 'Pendientes')" id="defaultOpen">Pendientes</button>
+                <button class="tablinks" onclick="openCity(event, 'Recogidos')">Recogidos</button>
+            </div>
+            <div id="Pendientes" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Nº Ticket</th>
+                        <th>Nº Prendas</th>
+                        <th>Entregado</th>
+                        <th>Finalización Prevista</th>
+                        <th>Estado</th>
+                    </tr>
+                    <tr>
+                        <td>1234XOM</td>
+                        <td>1</td>
+                        <td>15-3-2018</td>
+                        <td>16-3-2018</td>
+                        <td>Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>6660SYM</td>
+                        <td>5</td>
+                        <td>15-3-2018</td>
+                        <td>16-3-2018</td>
+                        <td>Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>8769UIH</td>
+                        <td>2</td>
+                        <td>16-3-2018</td>
+                        <td>16-3-2018</td>
+                        <td>Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>7582YHG</td>
+                        <td>21</td>
+                        <td>1-4-2018</td>
+                        <td>2-4-2018</td>
+                        <td>Entrega Parcial</td>
+                    </tr>
+                    <tr>
+                        <td>0987POK</td>
+                        <td>4</td>
+                        <td>15-4-2018</td>
+                        <td>16-4-2018</td>
+                        <td>Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>6589KIL</td>
+                        <td>1</td>
+                        <td>15-4-2018</td>
+                        <td>16-4-2018</td>
+                        <td>Pendiente</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Recogidos" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Nº Ticket</th>
+                        <th>Nº Prendas</th>
+                        <th>Entregado</th>
+                        <th>Recogido</th>
+                    </tr>
+                    <tr>
+                        <td>1234XOM</td>
+                        <td>1</td>
+                        <td>15-3-2018</td>
+                        <td>16-3-2018</td>
+                    </tr>
+                    <tr>
+                        <td>6660SYM</td>
+                        <td>5</td>
+                        <td>15-3-2018</td>
+                        <td>16-3-2018</td>
+                    </tr>
+                    <tr>
+                        <td>8769UIH</td>
+                        <td>2</td>
+                        <td>16-3-2018</td>
+                        <td>16-3-2018</td>
+                    </tr>
+                    <tr>
+                        <td>7582YHG</td>
+                        <td>21</td>
+                        <td>1-4-2018</td>
+                        <td>2-4-2018</td>
+                    </tr>
+                    <tr>
+                        <td>0987POK</td>
+                        <td>4</td>
+                        <td>15-4-2018</td>
+                        <td>16-4-2018</td>
+                    </tr>
+                    <tr>
+                        <td>6589KIL</td>
+                        <td>1</td>
+                        <td>15-4-2018</td>
+                        <td>16-4-2018</td>
+                    </tr>
+                    <tr>
+                        <td>1234XOM</td>
+                        <td>1</td>
+                        <td>15-3-2018</td>
+                        <td>16-3-2018</td>
+                    </tr>
+                    <tr>
+                        <td>6660SYM</td>
+                        <td>5</td>
+                        <td>15-3-2018</td>
+                        <td>16-3-2018</td>
+                    </tr>
+                    <tr>
+                        <td>8769UIH</td>
+                        <td>2</td>
+                        <td>16-3-2018</td>
+                        <td>16-3-2018</td>
+                    </tr>
+                    <tr>
+                        <td>7582YHG</td>
+                        <td>21</td>
+                        <td>1-4-2018</td>
+                        <td>2-4-2018</td>
+                    </tr>
+                    <tr>
+                        <td>0987POK</td>
+                        <td>4</td>
+                        <td>15-4-2018</td>
+                        <td>16-4-2018</td>
+                    </tr>
+                    <tr>
+                        <td>6589KIL</td>
+                        <td>1</td>
+                        <td>15-4-2018</td>
+                        <td>16-4-2018</td>
+                    </tr>
+                </table>
                 
             </div>
-            <div id="London" class="tabcontent">
-                <h3>London</h3>
-                <p>London is the capital city of England.</p>
-            </div>
-            <div id="Paris" class="tabcontent">
-                <h3>Paris</h3>
-                <p>Paris is the capital of France.</p>
-            </div>
-           
         </div>
         <!-- Marketing messaging and featurettes
       ================================================== -->
@@ -124,6 +250,7 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+    
 </body>
 
 </html>
