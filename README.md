@@ -19,31 +19,29 @@ El Diagrama de la base de datos con dichas entidades se muestra acontinuación:<
 
 <h3>Usuario:</h3></br>
 
-* Administrador: Se encargará de configurar la página, modificaciones …      </br> 		
-* Cliente: Se logueará con su DNI y podrá ver su listado de pedidos,además del listado de precios.</br>
-* Anónimo: Sólo podrá ver la página principal y el listado de precios.</br>
+* Administrador: Se encargará de configurar la página, crear / modificar / eliminar promociones, subir fotos al carrusel, dar de alta / modificar / borrar empleados, prendas, etcétera.      </br>
+* Empleado: Es el encargado de crear y modificar el estado de un ticket, además de poder acceder al listado detallado de tickets, imprimirlos, o buscar por cliente o número de ticket, modificar el estado de un ticket, y servirlo al cliente y cobrarlo. </br>
+* Cliente: Se logueará con su DNI y podrá ver su listado de sus pedidos, tanto los ya recogidos como los que aún no ha recogido, además de descargarse el pdf de las facturas asociadas a los mismos, y tiene también todas las funciones del usuario anónimo.</br>
+* Anónimo: Sólo podrá ver la página principal, los datos de como llegar e información del negocio y el listado de precios.</br>
 
 <h3>Funcionalidad:</h3>
-	
-  * **Fichar**: Pulsando el botón fichar se abre un pop-up donde mete su DNI y su clave. Si no ha fichado antes ese día se crea la línea en la tabla con la hora y fecha del marcaje en “hora de inicio” y fecha. Si ya hay una entrada previa ese dia se preguntará si ha finalizado su jornada comenzada a las (hora de fichaje anterior). Si pulsa "NO" no hay cambios, si pulsa "SI" se añade la hora en “hora fin”.
-  Si un día no cierra fichaje, al finalizar el día se añadirá en “hora fin” una hora posterior a la hora de fichaje (es decir, se cuenta que ha trabajado 1h).</br>
   * **Crear Ticket**: Se introduce el DNI del cliente. Si no existe se abre un pop-up que preguntará si desea crear uno nuevo:</br>
     * NO: se limpia el campo.</br>
     * SI: se cierra el pop-up y se abre otro donde se creará el nuevo cliente.</br>
-  * **Rellenar ticket**: Una vez introducido el DNI, el administrador generará los datos de la factura.</br>
-  -Promociones: El administrador podrá generar promociones, las cuales se les notificarán a los clientes a la hora de realizar el pago.</br>
-  * **Servicios**: El administrador podrá especificar los servicios que ofrece la tintonería.</br>
-  * **Facturación**: Se mostrará el resumen de facturación mensual, pudiendo incluir alguna modificación temporal previa exportación del pdf.</br>
-  * **Facturas**: Si el cliente lo solicita, se podrá exportar un pdf con la factura asociada a uno o varios tickets de ese mismo cliente, además de mandarla por e-mail.
+    * Rellenar ticket: Una vez introducido el DNI, el empleado generará los datos del ticket, imprimiéndolo al finalizar.</br>
+  * **Cambiar estado del ticket**: el empleado podrá cambiar el estado de _en proceso_ a _listo_ y posteriormente a _recogido_ al servir las prendas asociadas al ticket y cobrarlo. </br>
+  * **Promociones**: El administrador podrá generar promociones, las cuales tras crearlas se notificarán a los clientes a la hora de realizar el ticket.</br>
+  * **Empleados**: El administrador podrádar de alta nuevos empleados rellenando los datos del formulario.</br>
+  * **Clientes**: Tanto el administrador como el empleado podrán dar de alta a un nuevo cliente rellenando el formulario correspondiente. </br>
+  * **Facturas**: El cliente desde el listado de tickets recpgidos podrá exportar un pdf con la factura asociada al ticket. </br>
+ 
+<h3>Funcionalidad avanzada:</h3>
+  * **Promociones**: El usuario administrador podrá añadir, modificar o eliminar promociones sobre una cantidad de una prenda concreta, aplicando en base a dicha promoción un descuento sobre el precio de esa cantidad de prendas. Al crear el ticket saldrá un pop-up con las promociones activas y preguntará si desea generar el ticket o volver atrás para modificar el ticket y que se apliquen las mismas. </br>
+
+* **Recordatorio**: Si han pasado 2 meses desde la fecha en que el ticket se ha cambiado a _listo_ se enviará un e-mail al cliente recordándole que tiene ese ticket pendiente de recogida. Al pasar 3 meses desde dicha fecha se avisará de que el ticket sufrirá un recargo por demora del 5% si no se recoge a lo largo de los 7 días siguientes. Cuando el ticket lleve 23 meses en estado _listo_ se avisará de la finalización del periodo legal de conservación de la prenda en el establecimiento y de que tiene un mes para recogerlo o tal y como indica la normativa se procederá a la "destrucción" de las prendas.
   
-  <h3>Funcionalidad avanzada:</h3>
-	
-  * **Promociones**: El usuario administrador podrá añadir, modificar o eliminar promociones sobre un determinado tipo de prendas aplicando en base a la regla indicada un descuento.</br>
-  * **Historial empleado**: Se podrán consultar y/o modificar las horas de cada empleado (el administrador), o las propias, cada empleado.
-  * **Recordatorio**: Si han pasado 2 meses desde la fecha de recogida se enviará un e-mail al cliente (si tiene) recordándole que tiene prendas pendientes de recogida. Si han pasado 3 meses desde la fecha de recogida se avisará de que el ticket sufrirá un recargo por demora. Un mes antes de cumplir la prenda 2 años se avisará de la finalización del periodo legal de conservación de la prenda en el establecimiento.
+  <h3>Tecnologías:</h3>
   
-   <h3>Tecnologías:</h3>
-   
   **Enlace a trello** https://trello.com/b/H1zxurzx
  
  <h4>Diagrama:</h4>
