@@ -6,8 +6,10 @@
 * Fichar	=>	5 </br>
 * Administrar	=>	6 </br>
 </br>
-<h1>1</h1><h2>LISTADOS</h2> </br>
+<h1>1A</h1><h2>LISTADOS</h2> </br>
 * Precios	=>	Vista del listado </br>
+ </br>
+<h1>1B</h1><h2>LISTADOS</h2> </br>
 * Tikets	=>	Vista de los tikets asociados al cliente </br>
 * Buscar	=>	pop-up buscar	=>	Vista del resultado de la búsqueda </br>
  </br>
