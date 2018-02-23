@@ -41,10 +41,8 @@
 <h1>6</h1><h2>ADMINISTRAR</h2> </br>
 * Editar inf. Contacto y como legar	=>	5 </br>
 * Nuevo cliente	=>	7 </br>
-* Factura	=>	9 </br>
-* Nuevo empleado	=>	10 </br>
-* Modificar precios	=>	11 </br>
-* Facturación	=>	12 </br>
+* Nuevo empleado	=>	9 </br>
+* Modificar precios	=>	10 </br>
  </br>
 <h1>7</h1><h2>NUEVO CLIENTE</h2> </br>
 * Nombre </br>
@@ -63,12 +61,7 @@
 * Precio	=>	Se puede cambiar, por defecto el de la BBDD </br>
 * Cargar	=>	Carga los datos en el tiket </br>
  </br>
-<h1>9</h1><h2>FACTURA</h2> </br>
-* Tiket asociado	=>	pop-up “buscar tiket” </br>
-* Enviar por e-mail	=>	enlaza a Outlook, envía el pdf y lo guarda </br>
-* Imprimir	=>	Imprime el pdf y lo guarda </br>
- </br>
-<h1>10</h1><h2>NUEVO EMPLEADO</h2> </br>
+<h1>9</h1><h2>NUEVO EMPLEADO</h2> </br>
 * Nombre </br>
 * Apellidos </br>
 * Dirección </br>
@@ -80,7 +73,7 @@
 * Comprobar => pop-up: “El cliente ya existe” (limpia los campos) ; “El cliente no existe” (activa el botón guardar, genera la password) </br>
 * Guardar => Guarda los datos en la BBDD </br>
  </br>
-<h1>11</h1><h2>MODIFICAR PRECIOS</h2> </br>
+<h1>10</h1><h2>MODIFICAR PRECIOS</h2> </br>
 * Buscar prenda	=>	busca por nombre y se cargan los precios de la BBDD </br>
 * Plancha ant. 	=>	Muestra el antiguo precio </br>
 * Plancha nuevo	=>	para introducir el nuevo precio (por defecto pone el anterior) </br>
