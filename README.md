@@ -7,13 +7,15 @@
 **Fenando Castro García,f.castrog@alumnos.urjc.es**</br>
 <h2>Entidades:</h2> </br>
 
-* **Usuario**: </br>
-* **Empleado**: </br>
-* **Prenda**: </br>
-* **Promoción**: </br>
-* **Fichar**: </br>
-* **Ticket**: </br>
-* **Factura**: </br>
+* **Usuario** </br>
+* **Empleado** </br>
+* **Prenda** </br>
+* **Promoción** </br>
+* **Fichar** </br>
+* **Ticket** </br>
+* **Factura** </br>
+El Diagrama de la base de datos con dichas entidades se muestra acontinuación:</br>
+![Diagrama de entidades de la Base de datos.](https://github.com/IhoFenixMFS/TintoMax/blob/master/d%20bd.jpg)
 
 <h3>Usuario:</h3></br>
 
