@@ -15,8 +15,8 @@
  </br>
 <h1>2</h1><h2>TIKET</h2> </br>
 * DNI	=>	Si se encuentra se rellenan los campos (Nombre, Apellidos, Dirección, e-mail) </br>
-	=>	Si no, pop-up “El cliente no se encuentra, ¿dar de alta?" - SI -> 7 ; No -> limpia los campos </br>
-* Recogida	=>	Botón calendario para seleccionar fecha </br>
+	=>	Si no, pop-up “El cliente no se encuentra, ¿dar de alta?" - SI -> 7 ; No -> limpia los campos. </br>
+* Recogida	=>	Botón calendario para seleccionar fecha. </br>
 * Imprimir	=>	3 </br>
 * Botón prenda	=>	8 </br>
 * Factura	=>	9 </br>
