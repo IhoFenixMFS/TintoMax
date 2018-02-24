@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 CREATE TABLE IF NOT EXISTS ticket (
   num_ticket int(11) NOT NULL,
   id_prenda int(11) NOT NULL,
-  prenda varchar(25) NOT NULL UNIQUE,
+  prenda varchar(25) NOT NULL,
   cantidad int(11) NOT NULL,
   servicio enum('Limpieza','Plancha') NOT NULL DEFAULT 'Limpieza',
   im_unit_siva double NOT NULL,
