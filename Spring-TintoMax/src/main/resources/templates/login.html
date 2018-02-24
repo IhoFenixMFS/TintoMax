@@ -21,14 +21,14 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Inicio de sesión</div>
       <div class="card-body">
-        <form>
+        <form action="/login" method="post">
           <div class="form-group">
             <label for="exampleInputEmail1">Correo electrónico</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Introduzca su email">
+            <input class="form-control" id="inputEmail" type="email" aria-describedby="emailHelp" placeholder="Introduzca su email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Contraseña</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Contraseña">
+            <input class="form-control" id="inputPassword" type="password" placeholder="Contraseña">
           </div>
           <div class="form-group">
             <div class="form-check">
@@ -36,7 +36,7 @@
                 <input class="form-check-input" type="checkbox"> Recordar contraseña</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+          <a class="btn btn-primary btn-block" type="submit">Login</a>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.html">¿No tienes cuenta aún? Regístrate</a>
@@ -50,6 +50,25 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script type="text/javascript">
+	function validate() {
+    	if (document.f.username.value == "" && document.f.password.value == "") {
+        	alert("Introduzca el nombre de usuario y contraseña");
+        	document.f.username.focus();
+        	return false;
+    	}
+    	if (document.f.username.value == "") {
+        	alert("Introduzca el nombre de usuario");
+        	document.f.username.focus();
+        	return false;
+    	}
+    	if (document.f.password.value == "") {
+    		alert("Introduzca la contraseña");
+    		document.f.password.focus();
+        	return false;
+    	}
+	}
+</script>
 </body>
 
 </html>
