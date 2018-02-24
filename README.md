@@ -1,10 +1,10 @@
 # TintoMax - Grupo 6
 ##**Componentes del Grupo**<p>
-**Alejandro García Luna,a.garcialun@alumnos.urjc.es,AlejandroGarcíaLuna**</br>
-**Marina Fernández Suárez,m.fernandezsu@alumnos.urjc.es,IhoFenix**</br>
-**Omar Khanji Dobosh,o.khanji.2016@alumnos.urjc.es,khenji55**</br>
-**Álvaro Orbaneja Gómez,a.orbaneja@alumnos.urjc.es,Alvaro262**</br>
-**Fenando Castro García,f.castrog@alumnos.urjc.es**</br>
+**Alejandro García Luna, a.garcialun@alumnos.urjc.es, AlejandroGarcíaLuna**</br>
+**Marina Fernández Suárez, m.fernandezsu@alumnos.urjc.es, IhoFenixMFS**</br>
+**Omar Khanji Dobosh, o.khanji.2016@alumnos.urjc.es, khenji55**</br>
+**Álvaro Orbaneja Gómez, a.orbaneja@alumnos.urjc.es, Alvaro262**</br>
+**Fenando Castro García, f.castrog@alumnos.urjc.es, fcastrog**</br>
 <h2>Entidades:</h2> </br>
 
 * **Usuario** </br>
@@ -25,20 +25,20 @@ El Diagrama de la base de datos con dichas entidades se muestra acontinuación:<
 * **Anónimo**: Sólo podrá ver la página principal, los datos de como llegar e información del negocio y el listado de precios.</br>
 
 <h3>Funcionalidad:</h3>
- * **Crear Ticket**: Se introduce el DNI del cliente. Si no existe se abre un pop-up que preguntará si desea crear uno nuevo:</br>
-    * NO: se limpia el campo.</br>
-    * SI: se cierra el pop-up y se abre otro donde se creará el nuevo cliente.</br>
-    * Rellenar ticket: Una vez introducido el DNI, el empleado generará los datos del ticket, imprimiéndolo al finalizar.</br>
- * **Cambiar estado del ticket**: el empleado podrá cambiar el estado de _en proceso_ a _listo_ y posteriormente a _recogido_ al servir las prendas asociadas al ticket y cobrarlo. </br>
-* **Promociones**: El administrador podrá generar promociones, las cuales tras crearlas se notificarán a los clientes a la hora de realizar el ticket.</br>
-* ***Empleados**: El administrador podrádar de alta nuevos empleados rellenando los datos del formulario.</br>
-* **Clientes**: Tanto el administrador como el empleado podrán dar de alta a un nuevo cliente rellenando el formulario correspondiente. </br>
-* **Facturas**: El cliente desde el listado de tickets recpgidos podrá exportar un pdf con la factura asociada al ticket. </br>
+ *  **Crear Ticket**: Se introduce el DNI del cliente. Si no existe se abre un pop-up que preguntará si desea crear uno nuevo:</br>
+     * NO: se limpia el campo.</br>
+     * SI: se cierra el pop-up y se abre otro donde se creará el nuevo cliente.</br>
+     * Rellenar ticket: Una vez introducido el DNI, el empleado generará los datos del ticket, imprimiéndolo al finalizar.</br>
+ *  **Cambiar estado del ticket**: el empleado podrá cambiar el estado de _en proceso_ a _listo_ y posteriormente a _recogido_ al servir las prendas asociadas al ticket y cobrarlo. </br>
+*  **Promociones**: El administrador podrá generar promociones, las cuales tras crearlas se notificarán a los clientes a la hora de realizar el ticket.</br>
+*  ***Empleados**: El administrador podrádar de alta nuevos empleados rellenando los datos del formulario.</br>
+*  **Clientes**: Tanto el administrador como el empleado podrán dar de alta a un nuevo cliente rellenando el formulario correspondiente. </br>
+*  **Facturas**: El cliente desde el listado de tickets recpgidos podrá exportar un pdf con la factura asociada al ticket. </br>
  
 <h3>Funcionalidad avanzada:</h3>
-* **Promociones**: El usuario administrador podrá añadir, modificar o eliminar promociones sobre una cantidad de una prenda concreta, aplicando en base a dicha promoción un descuento sobre el precio de esa cantidad de prendas. Al crear el ticket saldrá un pop-up con las promociones activas y preguntará si desea generar el ticket o volver atrás para modificar el ticket y que se apliquen las mismas. </br>
+*  **Promociones**: El usuario administrador podrá añadir, modificar o eliminar promociones sobre una cantidad de una prenda concreta, aplicando en base a dicha promoción un descuento sobre el precio de esa cantidad de prendas. Al crear el ticket saldrá un pop-up con las promociones activas y preguntará si desea generar el ticket o volver atrás para modificar el ticket y que se apliquen las mismas. </br>
 
-* **Recordatorio**: Si han pasado 2 meses desde la fecha en que el ticket se ha cambiado a _listo_ se enviará un e-mail al cliente recordándole que tiene ese ticket pendiente de recogida. Al pasar 3 meses desde dicha fecha se avisará de que el ticket sufrirá un recargo por demora del 5% si no se recoge a lo largo de los 7 días siguientes. Cuando el ticket lleve 23 meses en estado _listo_ se avisará de la finalización del periodo legal de conservación de la prenda en el establecimiento y de que tiene un mes para recogerlo o tal y como indica la normativa se procederá a la "destrucción" de las prendas.
+*  **Recordatorio**: Si han pasado 2 meses desde la fecha en que el ticket se ha cambiado a _listo_ se enviará un e-mail al cliente recordándole que tiene ese ticket pendiente de recogida. Al pasar 3 meses desde dicha fecha se avisará de que el ticket sufrirá un recargo por demora del 5% si no se recoge a lo largo de los 7 días siguientes. Cuando el ticket lleve 23 meses en estado _listo_ se avisará de la finalización del periodo legal de conservación de la prenda en el establecimiento y de que tiene un mes para recogerlo o tal y como indica la normativa se procederá a la "destrucción" de las prendas.
   
   <h3>Tecnologías:</h3>
   
