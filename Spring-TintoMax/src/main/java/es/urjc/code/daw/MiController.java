@@ -46,7 +46,7 @@ public class MiController {
 
 		return "login";
 	}
-	@RequestMapping("/precios")
+	@RequestMapping("/listado_precios")
 	public String precios(Model model) {
 
 	//	model.addAttribute("name", "World");
