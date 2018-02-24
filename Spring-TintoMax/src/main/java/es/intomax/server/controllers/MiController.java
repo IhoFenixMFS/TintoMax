@@ -1,7 +1,4 @@
-package es.tintomax.controllers;
-
-import java.util.Arrays;
-import java.util.List;
+package es.intomax.server.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
