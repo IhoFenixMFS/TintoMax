@@ -38,10 +38,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+          {{#admin}}
+          <ul class="nav navbar-left top-nav">
+          	<li>
+          		<a class="nav-link" href="./administracion.html">Administración</a>
+          	</li>
+          </ul>
+          {{/admin}}
           <ul class="nav navbar-right top-nav">
-            
-            
-
           {{^user}}
           <a class="nav-link" href="./login.html">Inicio Sesión</a>
           {{/user}}

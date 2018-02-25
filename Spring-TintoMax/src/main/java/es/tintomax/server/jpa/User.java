@@ -7,12 +7,12 @@ import java.util.List;
 
 
 /**
- * The persistent class for the usuarios database table.
- * 
+ * The persistent class for the user database table.
+ *
  */
 @Entity
-@Table(name="usuarios")
-//@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
+@Table(name="user")
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,30 +21,37 @@ public class User implements Serializable {
 	@Column(name="id_user")
 	private int idUser;
 
-	private String apellidos;
+	@Column(name="address")
+	private String address;
 
-	private String direccion;
-
+	@Column(name="dni")
 	private String dni;
 
+	@Column(name="email")
 	private String email;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="fecha_alta")
-	private Date fechaAlta;
+	@Column(name="last_names")
+	private String lastNames;
 
-	private String nombre;
+	@Column(name="name")
+	private String name;
 
+	@Column(name="password")
 	private String password;
+
+	@Column(name="phone_number")
+	private int phoneNumber;
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="sign_up_date")
+	private Date signUpDate;
 
 	@Column(name="t_user")
 	private String tUser;
 
-	private int telf;
-
-	//bi-directional many-to-one association to Recibo
-	@OneToMany(mappedBy="usuario")
-	private List<Receipt> recibos;
+	//bi-directional many-to-one association to Receipt
+	@OneToMany(mappedBy="user")
+	private List<Receipt> receipts;
 
 	public User() {
 	}
@@ -57,20 +64,12 @@ public class User implements Serializable {
 		this.idUser = idUser;
 	}
 
-	public String getApellidos() {
-		return this.apellidos;
+	public String getAddress() {
+		return this.address;
 	}
 
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public String getDireccion() {
-		return this.direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getDni() {
@@ -89,20 +88,20 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public Date getFechaAlta() {
-		return this.fechaAlta;
+	public String getLastNames() {
+		return this.lastNames;
 	}
 
-	public void setFechaAlta(Date fechaAlta) {
-		this.fechaAlta = fechaAlta;
+	public void setLastNames(String lastNames) {
+		this.lastNames = lastNames;
 	}
 
-	public String getNombre() {
-		return this.nombre;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
@@ -113,6 +112,22 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
+	public int getPhoneNumber() {
+		return this.phoneNumber;
+	}
+
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Date getSignUpDate() {
+		return this.signUpDate;
+	}
+
+	public void setSignUpDate(Date signUpDate) {
+		this.signUpDate = signUpDate;
+	}
+
 	public String getTUser() {
 		return this.tUser;
 	}
@@ -121,43 +136,41 @@ public class User implements Serializable {
 		this.tUser = tUser;
 	}
 
-	public int getTelf() {
-		return this.telf;
+	public List<Receipt> getReceipts() {
+		return this.receipts;
 	}
 
-	public void setTelf(int telf) {
-		this.telf = telf;
+	public void setReceipts(List<Receipt> receipts) {
+		this.receipts = receipts;
 	}
 
-	public List<Receipt> getRecibos() {
-		return this.recibos;
+	public Receipt addReceipt(Receipt receipt) {
+		getReceipts().add(receipt);
+		receipt.setUser(this);
+
+		return receipt;
 	}
 
-	public void setRecibos(List<Receipt> recibos) {
-		this.recibos = recibos;
-	}
+	public Receipt removeReceipt(Receipt receipt) {
+		getReceipts().remove(receipt);
+		receipt.setUser(null);
 
-	public Receipt addRecibo(Receipt recibo) {
-		getRecibos().add(recibo);
-		recibo.setUsuario(this);
-
-		return recibo;
-	}
-
-	public Receipt removeRecibo(Receipt recibo) {
-		getRecibos().remove(recibo);
-		recibo.setUsuario(null);
-
-		return recibo;
+		return receipt;
 	}
 
 	@Override
 	public String toString() {
-		return "User [idUser=" + idUser + ", apellidos=" + apellidos + ", direccion=" + direccion + ", dni=" + dni
-				+ ", email=" + email + ", fechaAlta=" + fechaAlta + ", nombre=" + nombre + ", tUser=" + tUser
-				+ ", telf=" + telf + ", recibos=" + recibos + "]";
+		return "User{" +
+				"idUser=" + idUser +
+				", address='" + address + '\'' +
+				", dni='" + dni + '\'' +
+				", email='" + email + '\'' +
+				", lastNames='" + lastNames + '\'' +
+				", name='" + name + '\'' +
+				", password='" + password + '\'' +
+				", phoneNumber=" + phoneNumber +
+				", signUpDate=" + signUpDate +
+				", tUser='" + tUser + '\'' +
+				'}';
 	}
-	
-	
-
 }

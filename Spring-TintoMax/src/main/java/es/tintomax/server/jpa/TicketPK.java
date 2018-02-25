@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 /**
  * The primary key class for the ticket database table.
- * 
+ *
  */
 @Embeddable
 public class TicketPK implements Serializable {
@@ -41,9 +41,9 @@ public class TicketPK implements Serializable {
 			return false;
 		}
 		TicketPK castOther = (TicketPK)other;
-		return 
-			(this.numTicket == castOther.numTicket)
-			&& (this.idGarment == castOther.idGarment);
+		return
+				(this.numTicket == castOther.numTicket)
+						&& (this.idGarment == castOther.idGarment);
 	}
 
 	public int hashCode() {
@@ -51,7 +51,7 @@ public class TicketPK implements Serializable {
 		int hash = 17;
 		hash = hash * prime + this.numTicket;
 		hash = hash * prime + this.idGarment;
-		
+
 		return hash;
 	}
 }

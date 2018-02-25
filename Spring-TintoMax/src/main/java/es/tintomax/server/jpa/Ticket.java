@@ -6,38 +6,41 @@ import javax.persistence.*;
 
 /**
  * The persistent class for the ticket database table.
- * 
+ *
  */
 @Entity
-//@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t")
+@Table(name="ticket")
+@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t")
 public class Ticket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private TicketPK id;
 
-	private int cantidad;
-
-	@Column(name="im_unit_siva")
-	private double imUnitSiva;
-
 	@Lob
-	private String observaciones;
+	@Column(name="observations")
+	private String observations;
 
-	private String servicio;
+	@Column(name="quantity")
+	private int quantity;
 
-	@Column(name="total_siva")
-	private double totalSiva;
+	private String service;
 
-	//bi-directional many-to-one association to Prenda
+	@Column(name="without_iva_im_unit")
+	private double withoutIvaImUnit;
+
+	@Column(name="without_iva_total")
+	private double withoutIvaTotal;
+
+	//bi-directional many-to-one association to Garment
 	@ManyToOne
-	@JoinColumn(name="id_prenda", insertable = false, updatable = false)
-	private Garment prenda;
+	@JoinColumn(name="id_garment", insertable = false, updatable = false)
+	private Garment garment;
 
-	//bi-directional many-to-one association to Recibo
+	//bi-directional many-to-one association to Receipt
 	@ManyToOne
 	@JoinColumn(name="num_ticket", insertable = false, updatable = false)
-	private Receipt recibo;
+	private Receipt receipt;
 
 	public Ticket() {
 	}
@@ -50,60 +53,71 @@ public class Ticket implements Serializable {
 		this.id = id;
 	}
 
-	public int getCantidad() {
-		return this.cantidad;
+	public String getObservations() {
+		return this.observations;
 	}
 
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
+	public void setObservations(String observations) {
+		this.observations = observations;
 	}
 
-	public double getImUnitSiva() {
-		return this.imUnitSiva;
+	public int getQuantity() {
+		return this.quantity;
 	}
 
-	public void setImUnitSiva(double imUnitSiva) {
-		this.imUnitSiva = imUnitSiva;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
-	public String getObservaciones() {
-		return this.observaciones;
+	public String getService() {
+		return this.service;
 	}
 
-	public void setObservaciones(String observaciones) {
-		this.observaciones = observaciones;
+	public void setService(String service) {
+		this.service = service;
 	}
 
-	public String getServicio() {
-		return this.servicio;
+	public double getWithoutIvaImUnit() {
+		return this.withoutIvaImUnit;
 	}
 
-	public void setServicio(String servicio) {
-		this.servicio = servicio;
+	public void setWithoutIvaImUnit(double withoutIvaImUnit) {
+		this.withoutIvaImUnit = withoutIvaImUnit;
 	}
 
-	public double getTotalSiva() {
-		return this.totalSiva;
+	public double getWithoutIvaTotal() {
+		return this.withoutIvaTotal;
 	}
 
-	public void setTotalSiva(double totalSiva) {
-		this.totalSiva = totalSiva;
+	public void setWithoutIvaTotal(double withoutIvaTotal) {
+		this.withoutIvaTotal = withoutIvaTotal;
 	}
 
-	public Garment getPrenda() {
-		return this.prenda;
+	public Garment getGarment() {
+		return this.garment;
 	}
 
-	public void setPrenda(Garment prenda) {
-		this.prenda = prenda;
+	public void setGarment(Garment garment) {
+		this.garment = garment;
 	}
 
-	public Receipt getRecibo() {
-		return this.recibo;
+	public Receipt getReceipt() {
+		return this.receipt;
 	}
 
-	public void setRecibo(Receipt recibo) {
-		this.recibo = recibo;
+	public void setReceipt(Receipt receipt) {
+		this.receipt = receipt;
 	}
 
+	@Override
+	public String toString() {
+		return "Ticket{" +
+				"id=" + id +
+				", observations='" + observations + '\'' +
+				", quantity=" + quantity +
+				", service='" + service + '\'' +
+				", withoutIvaImUnit=" + withoutIvaImUnit +
+				", withoutIvaTotal=" + withoutIvaTotal +
+				'}';
+	}
 }

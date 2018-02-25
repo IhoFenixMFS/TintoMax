@@ -2,7 +2,10 @@ package es.tintomax.server.controllers;
 
 import java.util.List;
 
+import es.tintomax.server.jpa.Ticket;
+import es.tintomax.server.repositories.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+@Controller
 public class WebController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+	private TicketRepository ticketRepository;
 
 	@RequestMapping("/home")
 	public String home(Model model) {
@@ -40,6 +47,10 @@ public class WebController {
 
 		userRepository.findAll().forEach((User user) -> {
 			System.out.println(user.toString());
+		});
+
+		ticketRepository.findAll().forEach((Ticket ticket) -> {
+			System.out.println(ticket.toString());
 		});
 
 		//	model.addAttribute("name", "World");
