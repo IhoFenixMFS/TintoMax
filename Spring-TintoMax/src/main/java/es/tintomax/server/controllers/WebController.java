@@ -18,6 +18,7 @@ public class MiController {
 	    String name = auth.getName(); //get logged in username
 	    
 		model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("username",name);
 
 		return "home";
