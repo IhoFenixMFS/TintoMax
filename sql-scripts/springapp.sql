@@ -6,7 +6,7 @@ CREATE DATABASE IF NOT EXISTS tintomax;
 USE tintomax;
 
 
-CREATE TABLE IF NOT EXISTS prendas (
+CREATE TABLE IF NOT EXISTS garment (
   num_prenda int(11) PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(25) NOT NULL UNIQUE,
   limpieza_siva double NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS prendas (
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS usuarios (
+CREATE TABLE IF NOT EXISTS user (
   id_user int(11) NOT NULL AUTO_INCREMENT,
   t_user ENUM ('admin','empleado','cliente'),
   dni varchar(11) NOT NULL UNIQUE,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
   UNIQUE KEY DNI_2 (DNI,Nombre)
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS recibos (
+CREATE TABLE IF NOT EXISTS receipt (
   id_recibo int(11) PRIMARY KEY AUTO_INCREMENT,
   tot_prendas int(11) NOT NULL,
   id_user int(11) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS ticket (
   FOREIGN KEY (num_ticket) REFERENCES recibos(id_recibo)
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS facturas (
+CREATE TABLE IF NOT EXISTS bill (
   num_factura int(11) PRIMARY KEY AUTO_INCREMENT,
   id_recibo int(11) NOT NULL,
   nombre varchar(20) NOT NULL,
