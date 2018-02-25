@@ -15,29 +15,28 @@ INSERT INTO usuarios (t_user, dni, nombre, apellidos, direccion, telf, email, fe
 INSERT INTO usuarios (t_user, dni, nombre, apellidos, direccion, telf, email, fecha_alta, password) VALUES('cliente', '00000002A', 'Andrea', 'Ch. Sues', 'C/ Sagunto', 600000002, 'andrea@clienta.email', '2018-02-12', '2-and');
 
 --
+-- Volcado de datos para la tabla recibos
+--
+
+INSERT INTO recibos (tot_prendas, id_user,fecha_entrada, salida_apx, salida_real, Estado, tot_siva) VALUES(3, 3, '2018-02-18', '2018-02-28', '0000-00-00', 'En_proceso', 11.04);
+INSERT INTO recibos (tot_prendas, id_user,fecha_entrada, salida_apx, salida_real, Estado, tot_siva) VALUES(5, 3, '2018-02-24', '2018-02-24', '0000-00-00', 'Listo', 20.04);
+
+
+--
 -- Volcado de datos para la tabla ticket
 --
 
+INSERT INTO ticket (num_ticket, id_prenda, cantidad, servicio, im_unit_siva, total_siva, observaciones) VALUES(1, 1, 1, 'Limpieza', 5, 5, NULL);
+INSERT INTO ticket (num_ticket, id_prenda, cantidad, servicio, im_unit_siva, total_siva, observaciones) VALUES(1, 2, 2, 'Limpieza', 3.02, 6.04, NULL);
+INSERT INTO ticket (num_ticket, id_prenda, cantidad, servicio, im_unit_siva, total_siva, observaciones) VALUES(2, 1, 5, 'Plancha', 4.1, 20.50,'Sin ralla.');
 
-INSERT INTO ticket (num_ticket, id_prenda, prenda, cantidad, servicio, im_unit_siva, total_siva, observaciones) VALUES(1, 1, 'pantalon', 1, 'Limpieza', 5, 5, NULL);
-INSERT INTO ticket (num_ticket, id_prenda, prenda, cantidad, servicio, im_unit_siva, total_siva, observaciones) VALUES(1, 2, 'camisa', 2, 'Limpieza', 3.02, 6.04, NULL);
-INSERT INTO ticket (num_ticket, id_prenda, prenda, cantidad, servicio, im_unit_siva, total_siva, observaciones) VALUES(2, 1, 'pantalon', 5, 'Plancha', 4.1, 20.50,'Sin ralla.');
 
---
--- Volcado de datos para la tabla recibos
---
-/*
-INSERT INTO recibos (num_ticket, tot_prendas, DNI_cliente, Atendido, fecha_entrada, salida_apx, salida_real, Estado, tot_siva) VALUES(1, 3, '00000002A', '2018-02-18', '2018-02-28', '0000-00-00', 'En proceso', 11.04);
-INSERT INTO recibos (num_ticket, tot_prendas, DNI_cliente, Atendido, fecha_entrada, salida_apx, salida_real, Estado, tot_siva) VALUES(2, 5, '00000002A', '2018-02-24', '2018-02-24', '0000-00-00', 'Listo', 20.04);
-*/
-/*
 --
 -- Volcado de datos para la tabla facturas
 --
 
-INSERT INTO facturas (dni, nombre, fecha, num_ticket, importe_siva) VALUES('00000002A', 'Andrea', '2018-02-25', 2, 20.04);
+INSERT INTO facturas (id_recibo, nombre, fecha, num_ticket, importe_siva) VALUES(2, 'Andrea', '2018-02-25', 2, 20.04);
 
 --
 -- Restricciones para tablas volcadas
 --
-*/
