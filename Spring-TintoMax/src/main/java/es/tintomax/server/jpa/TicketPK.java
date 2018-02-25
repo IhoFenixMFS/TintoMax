@@ -1,4 +1,4 @@
-package es.tintomax.jpa;
+package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,8 +15,8 @@ public class TicketPK implements Serializable {
 	@Column(name="num_ticket", insertable=false, updatable=false)
 	private int numTicket;
 
-	@Column(name="id_prenda", insertable=false, updatable=false)
-	private int idPrenda;
+	@Column(name="id_garment", insertable=false, updatable=false)
+	private int idGarment;
 
 	public TicketPK() {
 	}
@@ -26,11 +26,11 @@ public class TicketPK implements Serializable {
 	public void setNumTicket(int numTicket) {
 		this.numTicket = numTicket;
 	}
-	public int getIdPrenda() {
-		return this.idPrenda;
+	public int getIdGarment() {
+		return this.idGarment;
 	}
-	public void setIdPrenda(int idPrenda) {
-		this.idPrenda = idPrenda;
+	public void setIdGarment(int idGarment) {
+		this.idGarment = idGarment;
 	}
 
 	public boolean equals(Object other) {
@@ -43,14 +43,14 @@ public class TicketPK implements Serializable {
 		TicketPK castOther = (TicketPK)other;
 		return 
 			(this.numTicket == castOther.numTicket)
-			&& (this.idPrenda == castOther.idPrenda);
+			&& (this.idGarment == castOther.idGarment);
 	}
 
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
 		hash = hash * prime + this.numTicket;
-		hash = hash * prime + this.idPrenda;
+		hash = hash * prime + this.idGarment;
 		
 		return hash;
 	}

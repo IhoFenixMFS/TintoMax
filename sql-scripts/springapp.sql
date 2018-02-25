@@ -7,10 +7,10 @@ USE tintomax;
 
 
 CREATE TABLE IF NOT EXISTS garment (
-  num_prenda int(11) PRIMARY KEY AUTO_INCREMENT,
-  nombre varchar(25) NOT NULL UNIQUE,
-  limpieza_siva double NOT NULL,
-  plancha_siva double NOT NULL
+  garment_number int(11) PRIMARY KEY AUTO_INCREMENT,
+  name varchar(25) NOT NULL UNIQUE,
+  without_iva_cleaning double NOT NULL,
+  without_iva_ironing double NOT NULL
 ) ENGINE=InnoDB;
 
 
@@ -18,49 +18,48 @@ CREATE TABLE IF NOT EXISTS user (
   id_user int(11) NOT NULL AUTO_INCREMENT,
   t_user ENUM ('admin','empleado','cliente'),
   dni varchar(11) NOT NULL UNIQUE,
-  nombre varchar(20) NOT NULL,
-  apellidos varchar(25) NOT NULL,
-  direccion varchar(50) NOT NULL,
-  telf int(11) NOT NULL,
+  name varchar(20) NOT NULL,
+  last_names varchar(25) NOT NULL,
+  address varchar(50) NOT NULL,
+  phone_number int(11) NOT NULL,
   email varchar(30) NOT NULL,
-  fecha_alta date NOT NULL,
+  sign_up_date date NOT NULL,
   password varchar(5) NOT NULL,
   PRIMARY KEY (id_user),
-  UNIQUE KEY DNI_2 (DNI,Nombre)
+  UNIQUE KEY DNI_2 (DNI,name)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS receipt (
-  id_recibo int(11) PRIMARY KEY AUTO_INCREMENT,
-  tot_prendas int(11) NOT NULL,
+  id_receipt int(11) PRIMARY KEY AUTO_INCREMENT,
+  total_garments int(11) NOT NULL,
   id_user int(11) NOT NULL,
-  fecha_entrada date NOT NULL, 
-  salida_apx date NOT NULL,
-  salida_real date,
-  estado enum('En_proceso','Listo','Recogido') NOT NULL DEFAULT 'En_proceso',
-  tot_siva double NOT NULL,
-  FOREIGN KEY (id_user) REFERENCES usuarios(id_user)
+  entry_date date NOT NULL, 
+  apx_output date NOT NULL,
+  real_output date,
+  state enum('En_proceso','Listo','Recogido') NOT NULL DEFAULT 'En_proceso',
+  without_iva_total double NOT NULL,
+  FOREIGN KEY (id_user) REFERENCES user(id_user)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS ticket (
-
   num_ticket int(11) NOT NULL,
-  id_prenda int(11) NOT NULL,
-  cantidad int(11) NOT NULL,
-  servicio enum('Limpieza','Plancha') NOT NULL DEFAULT 'Limpieza',
-  im_unit_siva double NOT NULL,
-  total_siva double NOT NULL,
-  observaciones longtext,
-  PRIMARY KEY (num_ticket,id_prenda),
-  FOREIGN KEY (id_prenda) REFERENCES prendas(num_prenda),
-  FOREIGN KEY (num_ticket) REFERENCES recibos(id_recibo)
+  id_garment int(11) NOT NULL,
+  quantity int(11) NOT NULL,
+  service enum('Limpieza','Plancha') NOT NULL DEFAULT 'Limpieza',
+  without_iva_im_unit double NOT NULL,
+  without_iva_total double NOT NULL,
+  observations longtext,
+  PRIMARY KEY (num_ticket,id_garment),
+  FOREIGN KEY (id_garment) REFERENCES garment(garment_number),
+  FOREIGN KEY (num_ticket) REFERENCES receipt(id_receipt)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS bill (
-  num_factura int(11) PRIMARY KEY AUTO_INCREMENT,
-  id_recibo int(11) NOT NULL,
-  nombre varchar(20) NOT NULL,
-  fecha date NOT NULL,
+  num_bill int(11) PRIMARY KEY AUTO_INCREMENT,
+  id_receipt int(11) NOT NULL,
+  name varchar(20) NOT NULL,
+  bill_date date NOT NULL,
   num_ticket int(11) NOT NULL,
-  importe_siva double NOT NULL,
-  FOREIGN KEY (id_recibo) REFERENCES recibos(id_recibo)
+  without_iva_amount double NOT NULL,
+  FOREIGN KEY (id_receipt) REFERENCES receipt(id_receipt)
 ) ENGINE=InnoDB;
