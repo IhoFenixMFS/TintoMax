@@ -1,5 +1,6 @@
 package es.tintomax.server.controllers;
 
+<<<<<<< HEAD:Spring-TintoMax/src/main/java/es/tintomax/server/controllers/MiController.java
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import es.tintomax.server.jpa.User;
 import es.tintomax.server.repositories.UserRepository;
+=======
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+>>>>>>> 7ec54ee27ab93d06bb881dc814c4eee3f82c94af:Spring-TintoMax/src/main/java/es/tintomax/server/controllers/WebController.java
 
 @Controller
 public class MiController {
@@ -22,6 +33,7 @@ public class MiController {
 	private UserRepository userRepository;
 	
 
+<<<<<<< HEAD:Spring-TintoMax/src/main/java/es/tintomax/server/controllers/MiController.java
 	@RequestMapping("/home")
 	public String home(Model model) {
 
@@ -37,10 +49,19 @@ public class MiController {
 		}*/
 		System.out.println(cad);		
 				
+=======
+	@RequestMapping(value="/home", method = RequestMethod.GET)
+	public String home(Model model,HttpServletRequest request) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    
+		model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("username",name);
+>>>>>>> 7ec54ee27ab93d06bb881dc814c4eee3f82c94af:Spring-TintoMax/src/main/java/es/tintomax/server/controllers/WebController.java
 
 		return "home";
 	}
-	
 	@RequestMapping("/")
 	public String index(Model model) {
 
