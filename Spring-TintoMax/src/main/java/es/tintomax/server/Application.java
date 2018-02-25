@@ -1,4 +1,4 @@
-package es.intomax.server;
+package es.tintomax.server;
 
 
 import org.springframework.boot.SpringApplication;

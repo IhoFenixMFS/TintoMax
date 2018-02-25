@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: tintomax_server
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: darwin
+Built-By: Iho
 Implementation-Vendor-Id: es.tintomax
-Build-Jdk: 1.8.0_151
+Build-Jdk: 1.8.0_161
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 

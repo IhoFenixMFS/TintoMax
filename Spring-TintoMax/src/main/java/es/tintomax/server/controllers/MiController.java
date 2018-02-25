@@ -1,8 +1,4 @@
-<<<<<<< HEAD:Spring-TintoMax/src/main/java/es/tintomax/controllers/MiController.java
-package es.tintomax.controllers;
-=======
-package es.intomax.server.controllers;
->>>>>>> cbef667f508a85267a2a01e8190122f844746f9f:Spring-TintoMax/src/main/java/es/intomax/server/controllers/MiController.java
+package es.tintomax.server.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
