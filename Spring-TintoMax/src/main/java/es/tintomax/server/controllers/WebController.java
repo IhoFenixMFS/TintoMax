@@ -70,7 +70,7 @@ public class WebController {
 		return "servicios_cliente";
 	}
 	
-	@RequestMapping(value="/datos_cliente",method = RequestMethod.GET)
+	@RequestMapping(value="/datos_usuario",method = RequestMethod.GET)
 	public String datos_cliente(Model model,HttpServletRequest request) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -79,7 +79,7 @@ public class WebController {
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("username",name);
 
-		return "datos_cliente";
+		return "datos_usuario";
 	}
 	@RequestMapping("/login")
 	public String login(Model model) {
