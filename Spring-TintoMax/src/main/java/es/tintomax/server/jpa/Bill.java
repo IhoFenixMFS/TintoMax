@@ -1,4 +1,4 @@
-package es.tintomax.jpa;
+package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -11,8 +11,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name="facturas")
-@NamedQuery(name="Factura.findAll", query="SELECT f FROM Factura f")
-public class Factura implements Serializable {
+//@NamedQuery(name="Factura.findAll", query="SELECT f FROM Factura f")
+public class Bill implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -31,14 +31,14 @@ public class Factura implements Serializable {
 	//bi-directional many-to-one association to Recibo
 	@ManyToOne
 	@JoinColumn(name="num_ticket")
-	private Recibo recibo1;
+	private Receipt recibo1;
 
 	//bi-directional many-to-one association to Recibo
 	@ManyToOne
 	@JoinColumn(name="id_recibo")
-	private Recibo recibo2;
+	private Receipt recibo2;
 
-	public Factura() {
+	public Bill() {
 	}
 
 	public int getNumFactura() {
@@ -73,19 +73,19 @@ public class Factura implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Recibo getRecibo1() {
+	public Receipt getRecibo1() {
 		return this.recibo1;
 	}
 
-	public void setRecibo1(Recibo recibo1) {
+	public void setRecibo1(Receipt recibo1) {
 		this.recibo1 = recibo1;
 	}
 
-	public Recibo getRecibo2() {
+	public Receipt getRecibo2() {
 		return this.recibo2;
 	}
 
-	public void setRecibo2(Recibo recibo2) {
+	public void setRecibo2(Receipt recibo2) {
 		this.recibo2 = recibo2;
 	}
 

@@ -1,4 +1,4 @@
-package es.tintomax.jpa;
+package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -12,8 +12,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="recibos")
-@NamedQuery(name="Recibo.findAll", query="SELECT r FROM Recibo r")
-public class Recibo implements Serializable {
+//@NamedQuery(name="Recibo.findAll", query="SELECT r FROM Recibo r")
+public class Receipt implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -43,22 +43,22 @@ public class Recibo implements Serializable {
 
 	//bi-directional many-to-one association to Factura
 	@OneToMany(mappedBy="recibo1")
-	private List<Factura> facturas1;
+	private List<Bill> facturas1;
 
 	//bi-directional many-to-one association to Factura
 	@OneToMany(mappedBy="recibo2")
-	private List<Factura> facturas2;
+	private List<Bill> facturas2;
 
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
 	@JoinColumn(name="id_user")
-	private Usuario usuario;
+	private User usuario;
 
 	//bi-directional many-to-one association to Ticket
 	@OneToMany(mappedBy="recibo")
 	private List<Ticket> tickets;
 
-	public Recibo() {
+	public Receipt() {
 	}
 
 	public int getIdRecibo() {
@@ -117,55 +117,55 @@ public class Recibo implements Serializable {
 		this.totSiva = totSiva;
 	}
 
-	public List<Factura> getFacturas1() {
+	public List<Bill> getFacturas1() {
 		return this.facturas1;
 	}
 
-	public void setFacturas1(List<Factura> facturas1) {
+	public void setFacturas1(List<Bill> facturas1) {
 		this.facturas1 = facturas1;
 	}
 
-	public Factura addFacturas1(Factura facturas1) {
+	public Bill addFacturas1(Bill facturas1) {
 		getFacturas1().add(facturas1);
 		facturas1.setRecibo1(this);
 
 		return facturas1;
 	}
 
-	public Factura removeFacturas1(Factura facturas1) {
+	public Bill removeFacturas1(Bill facturas1) {
 		getFacturas1().remove(facturas1);
 		facturas1.setRecibo1(null);
 
 		return facturas1;
 	}
 
-	public List<Factura> getFacturas2() {
+	public List<Bill> getFacturas2() {
 		return this.facturas2;
 	}
 
-	public void setFacturas2(List<Factura> facturas2) {
+	public void setFacturas2(List<Bill> facturas2) {
 		this.facturas2 = facturas2;
 	}
 
-	public Factura addFacturas2(Factura facturas2) {
+	public Bill addFacturas2(Bill facturas2) {
 		getFacturas2().add(facturas2);
 		facturas2.setRecibo2(this);
 
 		return facturas2;
 	}
 
-	public Factura removeFacturas2(Factura facturas2) {
+	public Bill removeFacturas2(Bill facturas2) {
 		getFacturas2().remove(facturas2);
 		facturas2.setRecibo2(null);
 
 		return facturas2;
 	}
 
-	public Usuario getUsuario() {
+	public User getUsuario() {
 		return this.usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(User usuario) {
 		this.usuario = usuario;
 	}
 

@@ -1,4 +1,4 @@
-package es.tintomax.jpa;
+package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -12,8 +12,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="usuarios")
-@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
-public class Usuario implements Serializable {
+//@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -44,9 +44,9 @@ public class Usuario implements Serializable {
 
 	//bi-directional many-to-one association to Recibo
 	@OneToMany(mappedBy="usuario")
-	private List<Recibo> recibos;
+	private List<Receipt> recibos;
 
-	public Usuario() {
+	public User() {
 	}
 
 	public int getIdUser() {
@@ -129,26 +129,35 @@ public class Usuario implements Serializable {
 		this.telf = telf;
 	}
 
-	public List<Recibo> getRecibos() {
+	public List<Receipt> getRecibos() {
 		return this.recibos;
 	}
 
-	public void setRecibos(List<Recibo> recibos) {
+	public void setRecibos(List<Receipt> recibos) {
 		this.recibos = recibos;
 	}
 
-	public Recibo addRecibo(Recibo recibo) {
+	public Receipt addRecibo(Receipt recibo) {
 		getRecibos().add(recibo);
 		recibo.setUsuario(this);
 
 		return recibo;
 	}
 
-	public Recibo removeRecibo(Recibo recibo) {
+	public Receipt removeRecibo(Receipt recibo) {
 		getRecibos().remove(recibo);
 		recibo.setUsuario(null);
 
 		return recibo;
 	}
+
+	@Override
+	public String toString() {
+		return "User [idUser=" + idUser + ", apellidos=" + apellidos + ", direccion=" + direccion + ", dni=" + dni
+				+ ", email=" + email + ", fechaAlta=" + fechaAlta + ", nombre=" + nombre + ", tUser=" + tUser
+				+ ", telf=" + telf + ", recibos=" + recibos + "]";
+	}
+	
+	
 
 }

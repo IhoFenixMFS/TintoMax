@@ -1,4 +1,4 @@
-package es.tintomax.jpa;
+package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t")
+//@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t")
 public class Ticket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -31,13 +31,13 @@ public class Ticket implements Serializable {
 
 	//bi-directional many-to-one association to Prenda
 	@ManyToOne
-	@JoinColumn(name="id_prenda")
-	private Prenda prenda;
+	@JoinColumn(name="id_prenda", insertable = false, updatable = false)
+	private Garment prenda;
 
 	//bi-directional many-to-one association to Recibo
 	@ManyToOne
-	@JoinColumn(name="num_ticket")
-	private Recibo recibo;
+	@JoinColumn(name="num_ticket", insertable = false, updatable = false)
+	private Receipt recibo;
 
 	public Ticket() {
 	}
@@ -90,19 +90,19 @@ public class Ticket implements Serializable {
 		this.totalSiva = totalSiva;
 	}
 
-	public Prenda getPrenda() {
+	public Garment getPrenda() {
 		return this.prenda;
 	}
 
-	public void setPrenda(Prenda prenda) {
+	public void setPrenda(Garment prenda) {
 		this.prenda = prenda;
 	}
 
-	public Recibo getRecibo() {
+	public Receipt getRecibo() {
 		return this.recibo;
 	}
 
-	public void setRecibo(Recibo recibo) {
+	public void setRecibo(Receipt recibo) {
 		this.recibo = recibo;
 	}
 

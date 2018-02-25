@@ -1,4 +1,4 @@
-package es.tintomax.jpa;
+package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -11,8 +11,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="prendas")
-@NamedQuery(name="Prenda.findAll", query="SELECT p FROM Prenda p")
-public class Prenda implements Serializable {
+//@NamedQuery(name="Prenda.findAll", query="SELECT p FROM Prenda p")
+public class Garment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -32,7 +32,7 @@ public class Prenda implements Serializable {
 	@OneToMany(mappedBy="prenda")
 	private List<Ticket> tickets;
 
-	public Prenda() {
+	public Garment() {
 	}
 
 	public int getNumPrenda() {
