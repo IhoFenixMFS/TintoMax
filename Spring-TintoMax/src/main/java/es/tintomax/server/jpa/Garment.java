@@ -6,66 +6,65 @@ import java.util.List;
 
 
 /**
- * The persistent class for the garment database table.
+ * The persistent class for the prendas database table.
  * 
  */
 @Entity
-@Table(name="garment")
-@NamedQuery(name="Garment.findAll", query="SELECT g FROM Garment g")
+@Table(name="prendas")
+//@NamedQuery(name="Prenda.findAll", query="SELECT p FROM Prenda p")
 public class Garment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="garment_number")
-	private int garmentNumber;
+	@Column(name="num_prenda")
+	private int numPrenda;
 
-	@Column(name="name")
-	private String name;
+	@Column(name="limpieza_siva")
+	private double limpiezaSiva;
 
-	@Column(name="without_iva_cleaning")
-	private double withoutIvaCleaning;
+	private String nombre;
 
-	@Column(name="without_iva_ironing")
-	private double withoutIvaIroning;
+	@Column(name="plancha_siva")
+	private double planchaSiva;
 
 	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="garment")
+	@OneToMany(mappedBy="prenda")
 	private List<Ticket> tickets;
 
 	public Garment() {
 	}
 
-	public int getGarmentNumber() {
-		return this.garmentNumber;
+	public int getNumPrenda() {
+		return this.numPrenda;
 	}
 
-	public void setGarmentNumber(int garmentNumber) {
-		this.garmentNumber = garmentNumber;
+	public void setNumPrenda(int numPrenda) {
+		this.numPrenda = numPrenda;
 	}
 
-	public String getName() {
-		return this.name;
+	public double getLimpiezaSiva() {
+		return this.limpiezaSiva;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setLimpiezaSiva(double limpiezaSiva) {
+		this.limpiezaSiva = limpiezaSiva;
 	}
 
-	public double getWithoutIvaCleaning() {
-		return this.withoutIvaCleaning;
+	public String getNombre() {
+		return this.nombre;
 	}
 
-	public void setWithoutIvaCleaning(double withoutIvaCleaning) {
-		this.withoutIvaCleaning = withoutIvaCleaning;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public double getWithoutIvaIroning() {
-		return this.withoutIvaIroning;
+	public double getPlanchaSiva() {
+		return this.planchaSiva;
 	}
 
-	public void setWithoutIvaIroning(double withoutIvaIroning) {
-		this.withoutIvaIroning = withoutIvaIroning;
+	public void setPlanchaSiva(double planchaSiva) {
+		this.planchaSiva = planchaSiva;
 	}
 
 	public List<Ticket> getTickets() {
@@ -78,25 +77,16 @@ public class Garment implements Serializable {
 
 	public Ticket addTicket(Ticket ticket) {
 		getTickets().add(ticket);
-		ticket.setGarment(this);
+		ticket.setPrenda(this);
 
 		return ticket;
 	}
 
 	public Ticket removeTicket(Ticket ticket) {
 		getTickets().remove(ticket);
-		ticket.setGarment(null);
+		ticket.setPrenda(null);
 
 		return ticket;
 	}
 
-	@Override
-	public String toString() {
-		return "Garment{" +
-				"garmentNumber=" + garmentNumber +
-				", name='" + name + '\'' +
-				", withoutIvaCleaning=" + withoutIvaCleaning +
-				", withoutIvaIroning=" + withoutIvaIroning +
-				'}';
-	}
 }

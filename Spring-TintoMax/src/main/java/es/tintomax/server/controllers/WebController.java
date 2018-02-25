@@ -1,35 +1,37 @@
 package es.tintomax.server.controllers;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
-import es.tintomax.server.jpa.Bill;
-import es.tintomax.server.jpa.Receipt;
-import es.tintomax.server.jpa.User;
-import es.tintomax.server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import es.tintomax.server.jpa.User;
+import es.tintomax.server.repositories.UserRepository;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import java.util.List;
-
-@Controller
 public class WebController {
 
     @Autowired
     private UserRepository userRepository;
 
+	@RequestMapping("/home")
+	public String home(Model model) {
+
+		return "home";
+	}
 	@RequestMapping(value="/home", method = RequestMethod.GET)
-	public String home(Model model,HttpServletRequest request) {
-		//Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    //String name = auth.getName(); //get logged in username
-
-		//model.addAttribute("user", request.isUserInRole("USER"));
-		//model.addAttribute("username",name);
-
+	public String home(Model model, HttpServletRequest request) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    
+		model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("username",name);
 		return "home";
 	}
 

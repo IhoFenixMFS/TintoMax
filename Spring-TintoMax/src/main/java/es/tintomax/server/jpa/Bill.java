@@ -6,98 +6,87 @@ import java.util.Date;
 
 
 /**
- * The persistent class for the bill database table.
+ * The persistent class for the facturas database table.
  * 
  */
 @Entity
-@Table(name="bill")
-@NamedQuery(name="Bill.findAll", query="SELECT b FROM Bill b")
+@Table(name="facturas")
+//@NamedQuery(name="Factura.findAll", query="SELECT f FROM Factura f")
 public class Bill implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="num_bill")
-	private int numBill;
+	@Column(name="num_factura")
+	private int numFactura;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="bill_date")
-	private Date billDate;
+	private Date fecha;
 
-	@Column(name="name")
-	private String name;
+	@Column(name="importe_siva")
+	private double importeSiva;
 
-	@Column(name="num_ticket")
-	private int numTicket;
+	private String nombre;
 
-	@Column(name="without_iva_amount")
-	private double withoutIvaAmount;
-
-	//bi-directional many-to-one association to Receipt
+	//bi-directional many-to-one association to Recibo
 	@ManyToOne
-	@JoinColumn(name="id_receipt")
-	private Receipt receipt;
+	@JoinColumn(name="num_ticket")
+	private Receipt recibo1;
+
+	//bi-directional many-to-one association to Recibo
+	@ManyToOne
+	@JoinColumn(name="id_recibo")
+	private Receipt recibo2;
 
 	public Bill() {
 	}
 
-	public int getNumBill() {
-		return this.numBill;
+	public int getNumFactura() {
+		return this.numFactura;
 	}
 
-	public void setNumBill(int numBill) {
-		this.numBill = numBill;
+	public void setNumFactura(int numFactura) {
+		this.numFactura = numFactura;
 	}
 
-	public Date getBillDate() {
-		return this.billDate;
+	public Date getFecha() {
+		return this.fecha;
 	}
 
-	public void setBillDate(Date billDate) {
-		this.billDate = billDate;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 
-	public String getName() {
-		return this.name;
+	public double getImporteSiva() {
+		return this.importeSiva;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setImporteSiva(double importeSiva) {
+		this.importeSiva = importeSiva;
 	}
 
-	public int getNumTicket() {
-		return this.numTicket;
+	public String getNombre() {
+		return this.nombre;
 	}
 
-	public void setNumTicket(int numTicket) {
-		this.numTicket = numTicket;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public double getWithoutIvaAmount() {
-		return this.withoutIvaAmount;
+	public Receipt getRecibo1() {
+		return this.recibo1;
 	}
 
-	public void setWithoutIvaAmount(double withoutIvaAmount) {
-		this.withoutIvaAmount = withoutIvaAmount;
+	public void setRecibo1(Receipt recibo1) {
+		this.recibo1 = recibo1;
 	}
 
-	public Receipt getReceipt() {
-		return this.receipt;
+	public Receipt getRecibo2() {
+		return this.recibo2;
 	}
 
-	public void setReceipt(Receipt receipt) {
-		this.receipt = receipt;
-	}
-
-	@Override
-	public String toString() {
-		return "Bill{" +
-				"numBill=" + numBill +
-				", billDate=" + billDate +
-				", name='" + name + '\'' +
-				", numTicket=" + numTicket +
-				", withoutIvaAmount=" + withoutIvaAmount +
-				'}';
+	public void setRecibo2(Receipt recibo2) {
+		this.recibo2 = recibo2;
 	}
 
 }

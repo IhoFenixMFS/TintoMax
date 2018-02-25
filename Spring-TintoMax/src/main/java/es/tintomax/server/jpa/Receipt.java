@@ -7,141 +7,166 @@ import java.util.List;
 
 
 /**
- * The persistent class for the receipt database table.
+ * The persistent class for the recibos database table.
  * 
  */
 @Entity
-@Table(name="receipt")
-@NamedQuery(name="Receipt.findAll", query="SELECT r FROM Receipt r")
+@Table(name="recibos")
+//@NamedQuery(name="Recibo.findAll", query="SELECT r FROM Recibo r")
 public class Receipt implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_receipt")
-	private int idReceipt;
+	@Column(name="id_recibo")
+	private int idRecibo;
+
+	private String estado;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="apx_output")
-	private Date apxOutput;
+	@Column(name="fecha_entrada")
+	private Date fechaEntrada;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="entry_date")
-	private Date entryDate;
+	@Column(name="salida_apx")
+	private Date salidaApx;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="real_output")
-	private Date realOutput;
+	@Column(name="salida_real")
+	private Date salidaReal;
 
-	@Column(name="state")
-	private String state;
+	@Column(name="tot_prendas")
+	private int totPrendas;
 
-	@Column(name="total_garments")
-	private int totalGarments;
+	@Column(name="tot_siva")
+	private double totSiva;
 
-	@Column(name="without_iva_total")
-	private double withoutIvaTotal;
+	//bi-directional many-to-one association to Factura
+	@OneToMany(mappedBy="recibo1")
+	private List<Bill> facturas1;
 
-	//bi-directional many-to-one association to Bill
-	@OneToMany(mappedBy="receipt")
-	private List<Bill> bills;
+	//bi-directional many-to-one association to Factura
+	@OneToMany(mappedBy="recibo2")
+	private List<Bill> facturas2;
 
-	//bi-directional many-to-one association to User
+	//bi-directional many-to-one association to Usuario
 	@ManyToOne
 	@JoinColumn(name="id_user")
-	private User user;
+	private User usuario;
 
 	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="receipt")
+	@OneToMany(mappedBy="recibo")
 	private List<Ticket> tickets;
 
 	public Receipt() {
 	}
 
-	public int getIdReceipt() {
-		return this.idReceipt;
+	public int getIdRecibo() {
+		return this.idRecibo;
 	}
 
-	public void setIdReceipt(int idReceipt) {
-		this.idReceipt = idReceipt;
+	public void setIdRecibo(int idRecibo) {
+		this.idRecibo = idRecibo;
 	}
 
-	public Date getApxOutput() {
-		return this.apxOutput;
+	public String getEstado() {
+		return this.estado;
 	}
 
-	public void setApxOutput(Date apxOutput) {
-		this.apxOutput = apxOutput;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
-	public Date getEntryDate() {
-		return this.entryDate;
+	public Date getFechaEntrada() {
+		return this.fechaEntrada;
 	}
 
-	public void setEntryDate(Date entryDate) {
-		this.entryDate = entryDate;
+	public void setFechaEntrada(Date fechaEntrada) {
+		this.fechaEntrada = fechaEntrada;
 	}
 
-	public Date getRealOutput() {
-		return this.realOutput;
+	public Date getSalidaApx() {
+		return this.salidaApx;
 	}
 
-	public void setRealOutput(Date realOutput) {
-		this.realOutput = realOutput;
+	public void setSalidaApx(Date salidaApx) {
+		this.salidaApx = salidaApx;
 	}
 
-	public String getState() {
-		return this.state;
+	public Date getSalidaReal() {
+		return this.salidaReal;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setSalidaReal(Date salidaReal) {
+		this.salidaReal = salidaReal;
 	}
 
-	public int getTotalGarments() {
-		return this.totalGarments;
+	public int getTotPrendas() {
+		return this.totPrendas;
 	}
 
-	public void setTotalGarments(int totalGarments) {
-		this.totalGarments = totalGarments;
+	public void setTotPrendas(int totPrendas) {
+		this.totPrendas = totPrendas;
 	}
 
-	public double getWithoutIvaTotal() {
-		return this.withoutIvaTotal;
+	public double getTotSiva() {
+		return this.totSiva;
 	}
 
-	public void setWithoutIvaTotal(double withoutIvaTotal) {
-		this.withoutIvaTotal = withoutIvaTotal;
+	public void setTotSiva(double totSiva) {
+		this.totSiva = totSiva;
 	}
 
-	public List<Bill> getBills() {
-		return this.bills;
+	public List<Bill> getFacturas1() {
+		return this.facturas1;
 	}
 
-	public void setBills(List<Bill> bills) {
-		this.bills = bills;
+	public void setFacturas1(List<Bill> facturas1) {
+		this.facturas1 = facturas1;
 	}
 
-	public Bill addBill(Bill bill) {
-		getBills().add(bill);
-		bill.setReceipt(this);
+	public Bill addFacturas1(Bill facturas1) {
+		getFacturas1().add(facturas1);
+		facturas1.setRecibo1(this);
 
-		return bill;
+		return facturas1;
 	}
 
-	public Bill removeBill(Bill bill) {
-		getBills().remove(bill);
-		bill.setReceipt(null);
+	public Bill removeFacturas1(Bill facturas1) {
+		getFacturas1().remove(facturas1);
+		facturas1.setRecibo1(null);
 
-		return bill;
+		return facturas1;
 	}
 
-	public User getUser() {
-		return this.user;
+	public List<Bill> getFacturas2() {
+		return this.facturas2;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setFacturas2(List<Bill> facturas2) {
+		this.facturas2 = facturas2;
+	}
+
+	public Bill addFacturas2(Bill facturas2) {
+		getFacturas2().add(facturas2);
+		facturas2.setRecibo2(this);
+
+		return facturas2;
+	}
+
+	public Bill removeFacturas2(Bill facturas2) {
+		getFacturas2().remove(facturas2);
+		facturas2.setRecibo2(null);
+
+		return facturas2;
+	}
+
+	public User getUsuario() {
+		return this.usuario;
+	}
+
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
 	}
 
 	public List<Ticket> getTickets() {
@@ -154,28 +179,16 @@ public class Receipt implements Serializable {
 
 	public Ticket addTicket(Ticket ticket) {
 		getTickets().add(ticket);
-		ticket.setReceipt(this);
+		ticket.setRecibo(this);
 
 		return ticket;
 	}
 
 	public Ticket removeTicket(Ticket ticket) {
 		getTickets().remove(ticket);
-		ticket.setReceipt(null);
+		ticket.setRecibo(null);
 
 		return ticket;
 	}
 
-	@Override
-	public String toString() {
-		return "Receipt{" +
-				"idReceipt=" + idReceipt +
-				", apxOutput=" + apxOutput +
-				", entryDate=" + entryDate +
-				", realOutput=" + realOutput +
-				", state='" + state + '\'' +
-				", totalGarments=" + totalGarments +
-				", withoutIvaTotal=" + withoutIvaTotal +
-				'}';
-	}
 }
