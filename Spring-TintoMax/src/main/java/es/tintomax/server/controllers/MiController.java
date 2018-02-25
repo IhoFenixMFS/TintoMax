@@ -1,20 +1,27 @@
-package es.tintomax.server.controllers;
+package es.urjc.code.daw;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @Controller
 public class MiController {
 
-	@RequestMapping("/home")
-	public String home(Model model) {
-
-	//	model.addAttribute("name", "World");
+	@RequestMapping(value="/home", method = RequestMethod.GET)
+	public String home(Model model,HttpServletRequest request) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    
+		model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("username",name);
 
 		return "home";
 	}
-	
 	@RequestMapping("/")
 	public String index(Model model) {
 
