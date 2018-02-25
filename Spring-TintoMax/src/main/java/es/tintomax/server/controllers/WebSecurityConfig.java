@@ -1,4 +1,4 @@
-package es.urjc.code.daw;
+package es.tintomax.server.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
