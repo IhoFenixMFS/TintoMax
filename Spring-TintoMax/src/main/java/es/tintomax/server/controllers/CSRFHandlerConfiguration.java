@@ -1,4 +1,4 @@
-package es.urjc.code.daw;
+package es.tintomax.server.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
