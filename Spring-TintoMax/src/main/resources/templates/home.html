@@ -38,13 +38,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          {{#admin}}
-          <ul class="nav navbar-left top-nav">
-          	<li>
-          		<a class="nav-link" href="./administracion.html">Administración</a>
-          	</li>
-          </ul>
-          {{/admin}}
           <ul class="nav navbar-right top-nav">
           {{^user}}
           <a class="nav-link" href="./login.html">Inicio Sesión</a>
@@ -52,10 +45,14 @@
           {{#user}}
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{username}} </a>
             <ul class="dropdown-menu">
-                 {{^admin}}
-                 <li> <a href="datos_cliente.html" class="dropdown-element"><i class="fa fa-fw fa-drivers-license-o dropdown-element"></i> Datos</a> </li>
+                 <li> <a href="datos_usuario.html" class="dropdown-element"><i class="fa fa-fw fa-drivers-license-o dropdown-element"></i> Datos</a> </li>
                  <li class="divider"></li>
+                 {{^admin}}
                  <li> <a href="servicios_cliente.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Encargos</a> </li>
+                 <li class="divider"></li>
+                 {{/admin}}
+                 {{#admin}}
+                 <li> <a href="administracion.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Administración</a> </li>
                  <li class="divider"></li>
                  {{/admin}}
                  <li> 
