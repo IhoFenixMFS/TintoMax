@@ -32,13 +32,14 @@ public class WebController {
 		return "home";
 	}
 	@RequestMapping(value="/home", method = RequestMethod.GET)
-	public String home(Model model, HttpServletRequest request) {
+	public String home(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String name = auth.getName(); //get logged in username
 	    
 		model.addAttribute("user", request.isUserInRole("USER"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("username",name);
+
 		return "home";
 	}
 
@@ -57,18 +58,26 @@ public class WebController {
 
 		return "home";
 	}
-	@RequestMapping("/servicios_cliente")
-	public String servicios_cliente(Model model) {
+	@RequestMapping(value="/servicios_cliente",method = RequestMethod.GET)
+	public String servicios_cliente(Model model,HttpServletRequest request) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("username",name);
 
-	//	model.addAttribute("name", "World");
 
 		return "servicios_cliente";
 	}
 	
-	@RequestMapping("/datos_cliente")
-	public String datos_cliente(Model model) {
+	@RequestMapping(value="/datos_cliente",method = RequestMethod.GET)
+	public String datos_cliente(Model model,HttpServletRequest request) {
 
-	//	model.addAttribute("name", "World");
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("username",name);
 
 		return "datos_cliente";
 	}
@@ -79,10 +88,14 @@ public class WebController {
 
 		return "login";
 	}
-	@RequestMapping("/listado_precios")
-	public String precios(Model model) {
+	@RequestMapping(value="/listado_precios",method = RequestMethod.GET)
+	public String precios(Model model,HttpServletRequest request) {
 
-	//	model.addAttribute("name", "World");
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("username",name);
 
 		return "listado_precios";
 	}
