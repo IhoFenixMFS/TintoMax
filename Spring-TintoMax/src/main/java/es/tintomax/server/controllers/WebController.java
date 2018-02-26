@@ -34,8 +34,7 @@ public class WebController {
 	@RequestMapping(value="/home", method = RequestMethod.GET)
 	public String home(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
-	    
+	    	String name = auth.getName(); //get logged in username
 		model.addAttribute("user", request.isUserInRole("USER"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("username",name);
@@ -61,8 +60,8 @@ public class WebController {
 	@RequestMapping(value="/servicios_cliente",method = RequestMethod.GET)
 	public String servicios_cliente(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
-	    model.addAttribute("user", request.isUserInRole("USER"));
+	    	String name = auth.getName(); //get logged in username
+	    	model.addAttribute("user", request.isUserInRole("USER"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("username",name);
 
@@ -74,8 +73,8 @@ public class WebController {
 	public String datos_cliente(Model model,HttpServletRequest request) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
-	    model.addAttribute("user", request.isUserInRole("USER"));
+	    	String name = auth.getName(); //get logged in username
+	    	model.addAttribute("user", request.isUserInRole("USER"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("username",name);
 
@@ -92,12 +91,23 @@ public class WebController {
 	public String precios(Model model,HttpServletRequest request) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
-	    model.addAttribute("user", request.isUserInRole("USER"));
+	    	String name = auth.getName(); //get logged in username
+	    	model.addAttribute("user", request.isUserInRole("USER"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("username",name);
 
 		return "listado_precios";
+	}
+	@RequestMapping(value="/administracion",method = RequestMethod.GET)
+	public String administracion(Model model,HttpServletRequest request) {
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    	String name = auth.getName(); //get logged in username
+	    	model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("username",name);
+
+		return "administracion";
 	}
 	
 }
