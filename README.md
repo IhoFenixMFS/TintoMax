@@ -50,4 +50,5 @@ El Diagrama de la base de datos con dichas entidades se muestra acontinuación:<
 
 
 <h3>Configuración:</h3>
+
 Se debe instalar mysql,configurarlo en las variables del path e inciarlo en el directorio del proyecto. Se lanzan las queries de la creación de la base de datos y tablas tras acceder desde ahí a mysql, y la query de inserción de datos. Posteriormente se ejecuta el aplication.java del proyecto, y se puede acceder ya con https://localhost:8080 a la aplicación.
