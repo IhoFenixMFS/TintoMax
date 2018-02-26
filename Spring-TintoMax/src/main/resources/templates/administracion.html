@@ -26,20 +26,36 @@
 
 <body onload="loadFunction()">
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <a class="navbar-brand" href="#">TintoMax</a>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <a class="navbar-brand" href="/home.html">TintoMax</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="nav navbar-right top-nav">
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith </a>
-                        <ul class="dropdown-menu">
-                            <li> <a href="datos_cliente.html" class="dropdown-element"><i class="fa fa-fw fa-drivers-license-o dropdown-element"></i> Datos</a> </li>
-                            <li class="divider"></li>
-                            <li> <a href="servicios_cliente.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Administración</a> </li>
-                            <li class="divider"></li>
-                            <li> <a href="home.html" class="dropdown-element"><i class="fa fa-fw fa-power-off dropdown-element"></i> Cerrar Sesión</a> </li>
-                        </ul>
-                    </li>
-                </ul>
+          {{^user}}
+          <a class="nav-link" href="./login.html">Inicio Sesión</a>
+          {{/user}}
+          {{#user}}
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{username}} </a>
+            <ul class="dropdown-menu">
+                 <li> <a href="datos_usuario.html" class="dropdown-element"><i class="fa fa-fw fa-drivers-license-o dropdown-element"></i> Datos</a> </li>
+                 <li class="divider"></li>
+                 {{^admin}}
+                 <li> <a href="servicios_cliente.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Encargos</a> </li>
+                 <li class="divider"></li>
+                 {{/admin}}
+                 {{#admin}}
+                 <li> <a href="administracion.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Administración</a> </li>
+                 <li class="divider"></li>
+                 {{/admin}}
+                 <li> 
+                    <form action="/logout" method="post">
+						<input class="btn btn-danger btn-block" type="submit" value="Cerrar Sesión"></input>
+						<input type="hidden" name="_csrf" value="{{token}}"/>
+					</form>
+				</li>
+          	</ul>
+          </li>
+          {{/user}}
+        </ul>
             </div>
         </nav>
     </header>
