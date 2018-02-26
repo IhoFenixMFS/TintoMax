@@ -45,5 +45,9 @@ El Diagrama de la base de datos con dichas entidades se muestra acontinuación:<
  **Enlace a trello** https://trello.com/b/H1zxurzx
  
  <h4>Diagrama:</h4>
-   
+  
 ![diagram](https://user-images.githubusercontent.com/12202594/35738061-f6ddb7e0-082d-11e8-9ce4-cbcc76db0c09.png)
+
+
+<h3>Configuración:</h3>
+Se debe instalar mysql,configurarlo en las variables del path e inciarlo en el directorio del proyecto. Se lanzan las queries de la creación de la base de datos y tablas tras acceder desde ahí a mysql, y la query de inserción de datos. Posteriormente se ejecuta el aplication.java del proyecto, y se puede acceder ya con https://localhost:8080 a la aplicación.
