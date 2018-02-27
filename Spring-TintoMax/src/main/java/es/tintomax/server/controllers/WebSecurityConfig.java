@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Configuration
 @EnableWebSecurity 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	@Autowired
+    public UserRepositoryAuthenticationProvider authenticationProvider;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // Public pages
@@ -37,13 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout().logoutSuccessUrl("/");
 
     }
-
+    
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER")
-        .and()
-        		.withUser("admin").password("admin").roles("USER","ADMIN");
+        auth.authenticationProvider(authenticationProvider);
     }
 }

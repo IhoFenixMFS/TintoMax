@@ -2,6 +2,11 @@ package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +25,12 @@ public class User implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_user")
 	private int idUser;
+	private String passwordHash;
 
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
+	
+	
 	@Column(name="address")
 	private String address;
 
@@ -55,7 +65,14 @@ public class User implements Serializable {
 
 	public User() {
 	}
-
+	public User(String name, String password, String... roles) {
+		this.name = name;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
+	}
+	
+	//(t_user, dni, name, last_names, address, phone_number, email, sign_up_date, password))
+	//('admin', '00000000A', 'Administrador', 'Admin', 'TintoMax', 0, 'admin@admin.admin', '2018-02-01', 'admin');
 	public int getIdUser() {
 		return this.idUser;
 	}
@@ -157,7 +174,21 @@ public class User implements Serializable {
 
 		return receipt;
 	}
+	public String getPasswordHash() {
+		return passwordHash;
+	}
 
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
+	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
 	@Override
 	public String toString() {
 		return "User{" +
