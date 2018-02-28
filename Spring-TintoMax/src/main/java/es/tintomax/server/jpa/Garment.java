@@ -12,11 +12,10 @@ import java.util.List;
 @Entity
 @Table(name="garment")
 @NamedQuery(name="Garment.findAll", query="SELECT g FROM Garment g")
-public class Garment implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Garment{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="garment_number")
 	private int garmentNumber;
 
@@ -29,11 +28,15 @@ public class Garment implements Serializable {
 	@Column(name="without_iva_ironing")
 	private double withoutIvaIroning;
 
-	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="garment")
 	private List<Ticket> tickets;
 
 	public Garment() {
+	}
+	public Garment(int garmentNumber,String name, double withoutIvaCleaning, double withoutIvaIroning) {
+		this.garmentNumber=garmentNumber;
+		this.name=name;
+		this.withoutIvaCleaning=withoutIvaCleaning;
+		this.withoutIvaIroning=withoutIvaIroning;
 	}
 
 	public int getGarmentNumber() {
@@ -76,19 +79,7 @@ public class Garment implements Serializable {
 		this.tickets = tickets;
 	}
 
-	public Ticket addTicket(Ticket ticket) {
-		getTickets().add(ticket);
-		ticket.setGarment(this);
-
-		return ticket;
-	}
-
-	public Ticket removeTicket(Ticket ticket) {
-		getTickets().remove(ticket);
-		ticket.setGarment(null);
-
-		return ticket;
-	}
+	
 
 	@Override
 	public String toString() {

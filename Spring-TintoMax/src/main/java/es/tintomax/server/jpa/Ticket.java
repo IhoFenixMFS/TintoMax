@@ -2,87 +2,107 @@ package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 
 /**
- * The persistent class for the ticket database table.
+ * The persistent class for the receipt database table.
  *
  */
 @Entity
 @Table(name="ticket")
-@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t")
-public class Ticket implements Serializable {
-	private static final long serialVersionUID = 1L;
+@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Receipt t")
+public class Ticket{
 
-	@EmbeddedId
-	private TicketPK id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id_ticket")
+	private int id_ticket;
 
-	@Lob
-	@Column(name="observations")
-	private String observations;
+	@Temporal(TemporalType.DATE)
+	@Column(name="apx_output")
+	private Date apxOutput;
 
-	@Column(name="quantity")
-	private int quantity;
+	@Temporal(TemporalType.DATE)
+	@Column(name="entry_date")
+	private Date entryDate;
 
-	private String service;
+	@Temporal(TemporalType.DATE)
+	@Column(name="real_output")
+	private Date realOutput;
 
-	@Column(name="without_iva_im_unit")
-	private double withoutIvaImUnit;
+	@Column(name="state")
+	private String state;
+
+	@Column(name="total_garments")
+	private int totalGarments;
 
 	@Column(name="without_iva_total")
 	private double withoutIvaTotal;
 
-	//bi-directional many-to-one association to Garment
-	@ManyToOne
-	@JoinColumn(name="id_garment", insertable = false, updatable = false)
-	private Garment garment;
+	//bi-directional many-to-one association to Bill
+	@OneToMany(mappedBy="receipt")
+	private List<Bill> bills;
 
-	//bi-directional many-to-one association to Receipt
+	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="num_ticket", insertable = false, updatable = false)
-	private Receipt receipt;
+	@JoinColumn(name="id_user")
+	private User user;
+
+	//bi-directional many-to-one association to Ticket
+	@OneToMany(mappedBy="receipt")
+	private List<Ticket> tickets;
 
 	public Ticket() {
 	}
 
-	public TicketPK getId() {
-		return this.id;
+	public int getIdTicket() {
+		return this.id_ticket;
 	}
 
-	public void setId(TicketPK id) {
-		this.id = id;
+	public void setIdTicket(int idTicket) {
+		this.id_ticket = idTicket;
 	}
 
-	public String getObservations() {
-		return this.observations;
+	public Date getApxOutput() {
+		return this.apxOutput;
 	}
 
-	public void setObservations(String observations) {
-		this.observations = observations;
+	public void setApxOutput(Date apxOutput) {
+		this.apxOutput = apxOutput;
 	}
 
-	public int getQuantity() {
-		return this.quantity;
+	public Date getEntryDate() {
+		return this.entryDate;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setEntryDate(Date entryDate) {
+		this.entryDate = entryDate;
 	}
 
-	public String getService() {
-		return this.service;
+	public Date getRealOutput() {
+		return this.realOutput;
 	}
 
-	public void setService(String service) {
-		this.service = service;
+	public void setRealOutput(Date realOutput) {
+		this.realOutput = realOutput;
 	}
 
-	public double getWithoutIvaImUnit() {
-		return this.withoutIvaImUnit;
+	public String getState() {
+		return this.state;
 	}
 
-	public void setWithoutIvaImUnit(double withoutIvaImUnit) {
-		this.withoutIvaImUnit = withoutIvaImUnit;
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getTotalGarments() {
+		return this.totalGarments;
+	}
+
+	public void setTotalGarments(int totalGarments) {
+		this.totalGarments = totalGarments;
 	}
 
 	public double getWithoutIvaTotal() {
@@ -93,30 +113,44 @@ public class Ticket implements Serializable {
 		this.withoutIvaTotal = withoutIvaTotal;
 	}
 
-	public Garment getGarment() {
-		return this.garment;
+	public List<Bill> getBills() {
+		return this.bills;
 	}
 
-	public void setGarment(Garment garment) {
-		this.garment = garment;
+	public void setBills(List<Bill> bills) {
+		this.bills = bills;
 	}
 
-	public Receipt getReceipt() {
-		return this.receipt;
+	
+
+	
+
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setReceipt(Receipt receipt) {
-		this.receipt = receipt;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
+	public List<Ticket> getTickets() {
+		return this.tickets;
+	}
+
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+
+	
 	@Override
 	public String toString() {
-		return "Ticket{" +
-				"id=" + id +
-				", observations='" + observations + '\'' +
-				", quantity=" + quantity +
-				", service='" + service + '\'' +
-				", withoutIvaImUnit=" + withoutIvaImUnit +
+		return "Receipt{" +
+				"idReceipt=" + id_ticket +
+				", apxOutput=" + apxOutput +
+				", entryDate=" + entryDate +
+				", realOutput=" + realOutput +
+				", state='" + state + '\'' +
+				", totalGarments=" + totalGarments +
 				", withoutIvaTotal=" + withoutIvaTotal +
 				'}';
 	}
