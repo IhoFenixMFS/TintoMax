@@ -58,7 +58,7 @@ public class User{
 	@Column(name="t_user")
 	private String tUser;
 
-	
+	@OneToMany(mappedBy="user")
 	private List<Ticket> tickets;
 
 	public User() {

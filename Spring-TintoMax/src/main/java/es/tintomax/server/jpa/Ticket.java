@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="ticket")
-@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Receipt t")
+@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t")
 public class Ticket{
 
 	@Id
@@ -41,18 +41,16 @@ public class Ticket{
 	@Column(name="without_iva_total")
 	private double withoutIvaTotal;
 
-	//bi-directional many-to-one association to Bill
-	@OneToMany(mappedBy="receipt")
+	@OneToMany(mappedBy="id_ticket")
 	private List<Bill> bills;
-
+	
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="id_user")
 	private User user;
 
-	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="receipt")
-	private List<Ticket> tickets;
+	
+	
 
 	public Ticket() {
 	}
@@ -133,13 +131,7 @@ public class Ticket{
 		this.user = user;
 	}
 
-	public List<Ticket> getTickets() {
-		return this.tickets;
-	}
-
-	public void setTickets(List<Ticket> tickets) {
-		this.tickets = tickets;
-	}
+	
 
 	
 	@Override

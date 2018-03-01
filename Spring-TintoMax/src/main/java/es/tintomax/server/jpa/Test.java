@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="test")
-@NamedQuery(name="Test.findAll", query="SELECT t FROM Garment t")
+@NamedQuery(name="Test.findAll", query="SELECT t FROM Test t")
 public class Test{
 	
 	@Id

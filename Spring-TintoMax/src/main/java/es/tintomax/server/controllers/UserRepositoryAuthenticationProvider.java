@@ -16,9 +16,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import es.tintomax.server.jpa.User;
+import es.tintomax.server.repositories.TestRepository;
 import es.tintomax.server.repositories.UserRepository;
-@Repository
-@Component
+
+
+
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired

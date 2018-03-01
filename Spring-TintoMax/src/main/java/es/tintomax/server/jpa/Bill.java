@@ -28,9 +28,10 @@ public class Bill{
 	@Column(name="without_iva_amount")
 	private double withoutIvaAmount;
 
-	
+	//bi-directional many-to-one association to Receipt
+	@ManyToOne
 	@JoinColumn(name="id_ticket")
-	private int id_ticket;
+	private Ticket id_ticket;
 
 	public Bill() {
 	}
@@ -52,10 +53,7 @@ public class Bill{
 		this.name = name;
 	}
 
-	public int getNumTicket() {
-		return this.id_ticket;
-	}
-
+	
 	public double getWithoutIvaAmount() {
 		return this.withoutIvaAmount;
 	}
@@ -64,9 +62,8 @@ public class Bill{
 	
 	
 	//Constructor
-	public Bill(int numBill,int id_ticket,String name, Date billDate,double withoutIvaAmount){
+	public Bill(int numBill,String name, Date billDate,double withoutIvaAmount){
 		this.numBill=numBill;
-		this.id_ticket=id_ticket;
 		this.name=name;
 		this.billDate=billDate;
 		this.withoutIvaAmount=withoutIvaAmount;

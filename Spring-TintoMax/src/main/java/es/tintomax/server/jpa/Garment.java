@@ -28,7 +28,7 @@ public class Garment{
 	@Column(name="without_iva_ironing")
 	private double withoutIvaIroning;
 
-	private List<Ticket> tickets;
+	
 
 	public Garment() {
 	}
@@ -71,13 +71,7 @@ public class Garment{
 		this.withoutIvaIroning = withoutIvaIroning;
 	}
 
-	public List<Ticket> getTickets() {
-		return this.tickets;
-	}
-
-	public void setTickets(List<Ticket> tickets) {
-		this.tickets = tickets;
-	}
+	
 
 	
 

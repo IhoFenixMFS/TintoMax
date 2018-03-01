@@ -1,4 +1,4 @@
-package es.tintomax.server.controllers;
+/*package es.tintomax.server.controllers;
 
 import javax.annotation.PostConstruct;
 
@@ -15,4 +15,4 @@ public class DatabaseUsersLoader {
     	
     }
 
-}
+}*/

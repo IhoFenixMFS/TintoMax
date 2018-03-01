@@ -4,13 +4,15 @@ import java.util.List;
 
 import es.tintomax.server.jpa.Ticket;
 import es.tintomax.server.repositories.TicketRepository;
+import es.tintomax.server.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.tintomax.server.jpa.User;
-import es.tintomax.server.repositories.UserRepository;
+import es.tintomax.server.repositories.TestRepository;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -47,13 +49,7 @@ public class WebController {
 	@RequestMapping("/")
 	public String index(Model model) {
 
-		userRepository.findAll().forEach((User user) -> {
-			System.out.println(user.toString());
-		});
-
-		ticketRepository.findAll().forEach((Ticket ticket) -> {
-			System.out.println(ticket.toString());
-		});
+		
 
 		//	model.addAttribute("name", "World");
 
