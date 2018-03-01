@@ -112,5 +112,15 @@ public class WebController {
 
 		return "administracion";
 	}
-	
+	@RequestMapping(value="/localizacion",method = RequestMethod.GET)
+	public String localizacion(Model model,HttpServletRequest request) {
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    	String name = auth.getName(); //get logged in username
+	    	model.addAttribute("user", request.isUserInRole("USER"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("username",name);
+
+		return "localizacion";
+	}
 }
