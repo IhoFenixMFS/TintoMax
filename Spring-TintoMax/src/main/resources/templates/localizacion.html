@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+	<bean id="templateResolver"
+      class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+    <property name="prefix" value="/WEB-INF/" />
+    <property name="templateMode" value="HTML5" />
+ </bean>
+    <title>TintoMax - Tu tintorería de confianza</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+    <link href="css/localizacion.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    </head>
+    
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/home.html">TintoMax</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="nav navbar-right top-nav">
+          {{^user}}
+          <a class="nav-link" href="./login.html">Inicio Sesión</a>
+          {{/user}}
+          {{#user}}
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{username}} </a>
+            <ul class="dropdown-menu">
+                 <li> <a href="datos_usuario.html" class="dropdown-element"><i class="fa fa-fw fa-drivers-license-o dropdown-element"></i> Datos</a> </li>
+                 <li class="divider"></li>
+                 {{^admin}}
+                 <li> <a href="servicios_cliente.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Encargos</a> </li>
+                 <li class="divider"></li>
+                 {{/admin}}
+                 {{#admin}}
+                 <li> <a href="administracion.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Administración</a> </li>
+                 <li class="divider"></li>
+                 {{/admin}}
+                 <li> 
+                    <form action="/logout" method="post">
+						<input class="btn btn-danger btn-block" type="submit" value="Cerrar Sesión"></input>
+						<input type="hidden" name="_csrf" value="{{token}}"/>
+					</form>
+				</li>
+          	</ul>
+          </li>
+          {{/user}}
+        </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="page-top" role="main">
+        
+        <div class="container">
+            <h3 id="titulo">Puedes encontrarnos aquí:</h3>
+            <div class="centrado">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.3774758778072!2d-3.715577884478151!3d40.444781561856665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42284fdbc24709%3A0x66b0bea3eee9c9af!2sCalle+de+la+Poeta+%C3%81ngela+Figuera%2C+7%2C+28003+Madrid!5e0!3m2!1ses!2ses!4v1519904050076" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+
+
+      <!-- FOOTER -->
+      <footer>
+            <p>&copy; 2017-2018 TintoMax, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+        <button onclick="topFunction()" id="scroll-up" type="button" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-chevron-up"></i></button>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scroll-up").style.display = "block";
+            }
+            else {
+                document.getElementById("scroll-up").style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+  </body>
+</html>
