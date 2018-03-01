@@ -27,12 +27,12 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <a class="navbar-brand" href="#">TintoMax</a>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <a class="navbar-brand" href="./home.html">TintoMax</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="nav navbar-right top-nav">
           {{^user}}
-          <a class="nav-link" href="./login.html">Inicio Sesión</a>
+          <a class="nav-link" href="./login.html">Iniciar Sesión</a>
           {{/user}}
           {{#user}}
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{username}} </a>
