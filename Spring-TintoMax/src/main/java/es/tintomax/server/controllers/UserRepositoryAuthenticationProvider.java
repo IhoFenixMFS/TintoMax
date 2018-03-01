@@ -27,7 +27,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 		System.out.println("\n\n\n\n"+auth.getName());
-		User user = userRepository.findByName(auth.getName());
+		User user = userRepository.findByDni(auth.getName());
 		//User user =null;
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
