@@ -11,28 +11,28 @@
     <link rel="icon" href="../../../../favicon.ico">
     <title>TintoMax - Tu tintorería de confianza</title>
     <!-- Bootstrap core CSS -->
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
-    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
-    <link href="../static/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="../static/css/sb-admin.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="../static/css/carousel.css" rel="stylesheet">
-    <link href="../static/css/loginerror.css" rel="stylesheet">
+    <link href="css/loginerror.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <a class="navbar-brand" href="#">TintoMax</a>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <a class="navbar-brand" href="./home.html">TintoMax</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="nav navbar-right top-nav">
-                  <!--  {{^user}}-->
-                    <a class="nav-link" href="./login.html">Inicio Sesión</a> <!--{{/user}} {{#user}}-->
+             <!--    <ul class="nav navbar-right top-nav">
+                   {{^user}}
+                    <a class="nav-link" href="./login.html">Inicio Sesión</a> {{/user}} 
+                    {{#user}}
                     <li class="dropdown">
                         <ul class="dropdown-menu">
                             <li> <a href="datos_usuario.html" class="dropdown-element"><i class="fa fa-fw fa-drivers-license-o dropdown-element"></i> Datos</a> </li>
@@ -46,21 +46,27 @@
                             {{/admin}}
                             <li>
                                 <form action="/logout" method="post">
-                                    <input class="btn btn-danger btn-block" type="submit" value="Cerrar Sesión"></input>
+                                    <input class="btn btn-danger btn-block" type="submit" value="Cerrar Sesión"/>
                                     <input type="hidden" name="_csrf" value="{{token}}" />
                                 </form>
                             </li>
                         </ul>
                     </li>
-<!--                    {{/user}}-->
-                </ul>
+                    {{/user}}
+                </ul> -->
             </div>
         </nav>
     </header>
     <main id="page-top" role="main">
-        <h3 id="titulo">Ha introducido mal los datos de inicio.</h3>
-        <h3 id="titulo">Vuelva a introducir su usuario y contraseña.</h3>
-        </Div>
+        <div class="centrado">
+            <div class="w-50 h-50 container"> 
+                <h4 id="titulo">Los datos introducidos son incorrectos.</h4>
+                <h4 id="titulo">Vuelva a introducir su usuario y contraseña.</h4>
+                <div class="centrado" >
+                    <a class="btn btn-primary btn-block w-50 h-50" href="./login.html">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div> 
         <!-- Marketing messaging and featurettes
       ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -119,6 +125,4 @@
     </script>
 
 </body>
-
 </html>
-
