@@ -13,9 +13,15 @@ main {
 }
 #titulo {
     position: relative;
-    top: 40px;
     text-align: center;
 }
+
+.centrado {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
 header {
     position: absolute;
     top: 0px;
