@@ -1,21 +1,18 @@
 package es.tintomax.server.controllers;
 
-import java.util.List;
-import es.tintomax.server.jpa.Ticket;
-import es.tintomax.server.repositories.GarmentRepository;
 import es.tintomax.server.repositories.TicketRepository;
+import es.tintomax.server.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import es.tintomax.server.jpa.User;
-import es.tintomax.server.repositories.UserRepository;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-
 
 @Controller
 public class WebController {
@@ -25,9 +22,6 @@ public class WebController {
 
     @Autowired
 	private TicketRepository ticketRepository;
-	
-    @Autowired
-    private GarmentRepository garmentRepository;
 
 	@RequestMapping("/home")
 	public String home(Model model) {
@@ -48,13 +42,7 @@ public class WebController {
 	@RequestMapping("/")
 	public String index(Model model) {
 
-		userRepository.findAll().forEach((User user) -> {
-			System.out.println(user.toString());
-		});
-
-		ticketRepository.findAll().forEach((Ticket ticket) -> {
-			System.out.println(ticket.toString());
-		});
+		
 
 		//	model.addAttribute("name", "World");
 
@@ -98,7 +86,7 @@ public class WebController {
 	    	model.addAttribute("user", request.isUserInRole("USER"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("username",name);
-		model.addAttribute("precios",garmentRepository.findAll(new PageRequest(0,10)));
+
 		return "listado_precios";
 	}
 	@RequestMapping(value="/administracion",method = RequestMethod.GET)

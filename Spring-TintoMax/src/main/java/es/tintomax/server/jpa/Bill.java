@@ -1,6 +1,5 @@
 package es.tintomax.server.jpa;
 
-import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,30 +11,25 @@ import java.util.Date;
 @Entity
 @Table(name="bill")
 @NamedQuery(name="Bill.findAll", query="SELECT b FROM Bill b")
-public class Bill implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Bill{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="num_bill")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int numBill;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="bill_date")
 	private Date billDate;
 
-	@Column(name="name")
 	private String name;
 
-	@Column(name="num_ticket")
-	private int numTicket;
 
-	@Column(name="without_iva_amount")
 	private double withoutIvaAmount;
 
 	//bi-directional many-to-one association to Receipt
 	@ManyToOne
-	@JoinColumn(name="id_receipt")
+	private Ticket ticket;
+
+	@ManyToOne
 	private Receipt receipt;
 
 	public Bill() {
@@ -45,17 +39,10 @@ public class Bill implements Serializable {
 		return this.numBill;
 	}
 
-	public void setNumBill(int numBill) {
-		this.numBill = numBill;
-	}
-
 	public Date getBillDate() {
 		return this.billDate;
 	}
 
-	public void setBillDate(Date billDate) {
-		this.billDate = billDate;
-	}
 
 	public String getName() {
 		return this.name;
@@ -65,28 +52,28 @@ public class Bill implements Serializable {
 		this.name = name;
 	}
 
-	public int getNumTicket() {
-		return this.numTicket;
-	}
-
-	public void setNumTicket(int numTicket) {
-		this.numTicket = numTicket;
-	}
 
 	public double getWithoutIvaAmount() {
 		return this.withoutIvaAmount;
 	}
 
-	public void setWithoutIvaAmount(double withoutIvaAmount) {
-		this.withoutIvaAmount = withoutIvaAmount;
+	public Ticket getTicket() {
+		return this.ticket;
 	}
 
-	public Receipt getReceipt() {
-		return this.receipt;
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
 	}
 
-	public void setReceipt(Receipt receipt) {
-		this.receipt = receipt;
+
+
+
+	//Constructor
+	public Bill(int numBill,String name, Date billDate,double withoutIvaAmount){
+		this.numBill=numBill;
+		this.name=name;
+		this.billDate=billDate;
+		this.withoutIvaAmount=withoutIvaAmount;
 	}
 
 	@Override
@@ -95,7 +82,6 @@ public class Bill implements Serializable {
 				"numBill=" + numBill +
 				", billDate=" + billDate +
 				", name='" + name + '\'' +
-				", numTicket=" + numTicket +
 				", withoutIvaAmount=" + withoutIvaAmount +
 				'}';
 	}
