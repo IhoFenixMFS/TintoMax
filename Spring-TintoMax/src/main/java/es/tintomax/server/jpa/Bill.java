@@ -25,11 +25,7 @@ public class Bill{
 
 	private double withoutIvaAmount;
 
-	//bi-directional many-to-one association to Receipt
-	@ManyToOne
-	private Ticket ticket;
-
-	@ManyToOne
+	@OneToOne
 	private Receipt receipt;
 
 	public Bill() {
@@ -52,18 +48,16 @@ public class Bill{
 		this.name = name;
 	}
 
-
-	public double getWithoutIvaAmount() {
-		return this.withoutIvaAmount;
+	public Receipt getReceipt() {
+		return this.receipt;
 	}
 
-	public Ticket getTicket() {
-		return this.ticket;
+	public void setReceipt(Receipt receipt) {
+		this.receipt = receipt;
 	}
 
-	public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
-	}
+
+
 
 
 

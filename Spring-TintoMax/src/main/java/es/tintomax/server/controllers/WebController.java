@@ -1,6 +1,5 @@
 package es.tintomax.server.controllers;
 
-import es.tintomax.server.repositories.TicketRepository;
 import es.tintomax.server.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +18,7 @@ public class WebController {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-	private TicketRepository ticketRepository;
+    
 
 	@RequestMapping("/home")
 	public String home(Model model) {

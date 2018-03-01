@@ -5,10 +5,7 @@ import javax.persistence.*;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -26,11 +23,10 @@ public class User{
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
-	
 
 	private String address;
 
-	private int dni;
+	private String dni;
 
 	private String email;
 
@@ -41,30 +37,26 @@ public class User{
 	@Column(name="password")
 	private String passwordHash;
 
-	private int phoneNumber;
+	private long phoneNumber;
 
 	@Temporal(TemporalType.DATE)
-	private Date signUpDate;
-
-	private String tUser;
-
-	@OneToMany(mappedBy="user")
-	private List<Ticket> tickets;
+	private Calendar signUpDate;
 
 	public User() {
 	}
-	public User(String tUser,int dni,String name, String lastNames,String address,String email,Date signUpDate,String password, String... roles) {
-		this.tUser=tUser;
+	public User(String dni,String name, String lastNames,String address,String email,Calendar signUpDate, long phoneNumber, String password, String... roles) {
 		this.dni=dni;
 		this.name = name;
 		this.lastNames=lastNames;
 		this.address=address;
 		this.email=email;
 		this.signUpDate=signUpDate;
+		this.phoneNumber = phoneNumber;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
-	
+
+
 	//(t_user, dni, name, last_names, address, phone_number, email, sign_up_date, password))
 	//('admin', '00000000A', 'Administrador', 'Admin', 'TintoMax', 0, 'admin@admin.admin', '2018-02-01', 'admin');
 	public Long getIdUser() {
@@ -83,11 +75,11 @@ public class User{
 		this.address = address;
 	}
 
-	public int getDni() {
+	public String getDni() {
 		return this.dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
@@ -123,50 +115,20 @@ public class User{
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 	}
 
-	public int getPhoneNumber() {
+	public long getPhoneNumber() {
 		return this.phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Date getSignUpDate() {
+	public Calendar getSignUpDate() {
 		return this.signUpDate;
 	}
 
-	public void setSignUpDate(Date signUpDate) {
+	public void setSignUpDate(Calendar signUpDate) {
 		this.signUpDate = signUpDate;
-	}
-
-	public String getTUser() {
-		return this.tUser;
-	}
-
-	public void setTUser(String tUser) {
-		this.tUser = tUser;
-	}
-
-	public List<Ticket> getReceipts() {
-		return this.tickets;
-	}
-
-	public void setReceipts(List<Ticket> receipts) {
-		this.tickets = receipts;
-	}
-
-	public Ticket addReceipt(Ticket receipt) {
-		getReceipts().add(receipt);
-		receipt.setUser(this);
-
-		return receipt;
-	}
-
-	public Ticket removeReceipt(Ticket receipt) {
-		getReceipts().remove(receipt);
-		receipt.setUser(null);
-
-		return receipt;
 	}
 	
 	public List<String> getRoles() {
@@ -189,7 +151,6 @@ public class User{
 				", password='" + passwordHash + '\'' +
 				", phoneNumber=" + phoneNumber +
 				", signUpDate=" + signUpDate +
-				", tUser='" + tUser + '\'' +
 				'}';
 	}
 }

@@ -2,6 +2,7 @@ package es.tintomax.server.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -21,13 +22,13 @@ public class Receipt implements Serializable {
 	private int idReceipt;
 
 	@Temporal(TemporalType.DATE)
-	private Date apxOutput;
+	private Calendar apxOutput;
 
 	@Temporal(TemporalType.DATE)
-	private Date entryDate;
+	private Calendar entryDate;
 
 	@Temporal(TemporalType.DATE)
-	private Date realOutput;
+	private Calendar realOutput;
 
 	private String state;
 
@@ -35,17 +36,13 @@ public class Receipt implements Serializable {
 
 	private double withoutIvaTotal;
 
-	//bi-directional many-to-one association to Bill
-	@OneToMany(mappedBy="receipt")
-	private List<Bill> bills;
-
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	private User user;
 
-	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="receipt")
-	private List<Ticket> tickets;
+
+	@OneToMany(mappedBy = "receipt")
+	List<Detail> details;
 
 	public Receipt() {
 	}
@@ -58,27 +55,27 @@ public class Receipt implements Serializable {
 		this.idReceipt = idReceipt;
 	}
 
-	public Date getApxOutput() {
+	public Calendar getApxOutput() {
 		return this.apxOutput;
 	}
 
-	public void setApxOutput(Date apxOutput) {
+	public void setApxOutput(Calendar apxOutput) {
 		this.apxOutput = apxOutput;
 	}
 
-	public Date getEntryDate() {
+	public Calendar getEntryDate() {
 		return this.entryDate;
 	}
 
-	public void setEntryDate(Date entryDate) {
+	public void setEntryDate(Calendar entryDate) {
 		this.entryDate = entryDate;
 	}
 
-	public Date getRealOutput() {
+	public Calendar getRealOutput() {
 		return this.realOutput;
 	}
 
-	public void setRealOutput(Date realOutput) {
+	public void setRealOutput(Calendar realOutput) {
 		this.realOutput = realOutput;
 	}
 
@@ -106,23 +103,6 @@ public class Receipt implements Serializable {
 		this.withoutIvaTotal = withoutIvaTotal;
 	}
 
-	public List<Bill> getBills() {
-		return this.bills;
-	}
-
-	public void setBills(List<Bill> bills) {
-		this.bills = bills;
-	}
-
-	public Bill addBill(Bill bill) {
-		getBills().add(bill);
-		return bill;
-	}
-
-	public Bill removeBill(Bill bill) {
-		getBills().remove(bill);
-		return bill;
-	}
 
 	public User getUser() {
 		return this.user;
@@ -130,24 +110,6 @@ public class Receipt implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public List<Ticket> getTickets() {
-		return this.tickets;
-	}
-
-	public void setTickets(List<Ticket> tickets) {
-		this.tickets = tickets;
-	}
-
-	public Ticket addTicket(Ticket ticket) {
-		getTickets().add(ticket);
-		return ticket;
-	}
-
-	public Ticket removeTicket(Ticket ticket) {
-		getTickets().remove(ticket);
-		return ticket;
 	}
 
 	@Override
