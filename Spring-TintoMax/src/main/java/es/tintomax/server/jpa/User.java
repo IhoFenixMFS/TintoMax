@@ -18,14 +18,12 @@ import java.util.List;
 @Entity
 @Table(name="user")
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
-public class User implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class User{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_user")
-	private int idUser;
-	private String passwordHash;
+	private Long idUser;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
@@ -35,7 +33,7 @@ public class User implements Serializable {
 	private String address;
 
 	@Column(name="dni")
-	private String dni;
+	private int dni;
 
 	@Column(name="email")
 	private String email;
@@ -48,7 +46,8 @@ public class User implements Serializable {
 
 	@Column(name="password")
 	private String password;
-
+	private String passwordHash;
+	
 	@Column(name="phone_number")
 	private int phoneNumber;
 
@@ -59,25 +58,30 @@ public class User implements Serializable {
 	@Column(name="t_user")
 	private String tUser;
 
-	//bi-directional many-to-one association to Receipt
 	@OneToMany(mappedBy="user")
-	private List<Receipt> receipts;
+	private List<Ticket> tickets;
 
 	public User() {
 	}
-	public User(String name, String password, String... roles) {
+	public User(String tUser,int dni,String name, String lastNames,String address,String email,Date signUpDate,String password, String... roles) {
+		this.tUser=tUser;
+		this.dni=dni;
 		this.name = name;
+		this.lastNames=lastNames;
+		this.address=address;
+		this.email=email;
+		this.signUpDate=signUpDate;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 	
 	//(t_user, dni, name, last_names, address, phone_number, email, sign_up_date, password))
 	//('admin', '00000000A', 'Administrador', 'Admin', 'TintoMax', 0, 'admin@admin.admin', '2018-02-01', 'admin');
-	public int getIdUser() {
+	public Long getIdUser() {
 		return this.idUser;
 	}
 
-	public void setIdUser(int idUser) {
+	public void setIdUser(Long idUser) {
 		this.idUser = idUser;
 	}
 
@@ -89,11 +93,11 @@ public class User implements Serializable {
 		this.address = address;
 	}
 
-	public String getDni() {
+	public int getDni() {
 		return this.dni;
 	}
 
-	public void setDni(String dni) {
+	public void setDni(int dni) {
 		this.dni = dni;
 	}
 
@@ -153,39 +157,33 @@ public class User implements Serializable {
 		this.tUser = tUser;
 	}
 
-	public List<Receipt> getReceipts() {
-		return this.receipts;
+	public List<Ticket> getReceipts() {
+		return this.tickets;
 	}
 
-	public void setReceipts(List<Receipt> receipts) {
-		this.receipts = receipts;
+	public void setReceipts(List<Ticket> receipts) {
+		this.tickets = receipts;
 	}
 
-	public Receipt addReceipt(Receipt receipt) {
+	public Ticket addReceipt(Ticket receipt) {
 		getReceipts().add(receipt);
 		receipt.setUser(this);
 
 		return receipt;
 	}
 
-	public Receipt removeReceipt(Receipt receipt) {
+	public Ticket removeReceipt(Ticket receipt) {
 		getReceipts().remove(receipt);
 		receipt.setUser(null);
 
 		return receipt;
 	}
-	public String getPasswordHash() {
-		return passwordHash;
-	}
-
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
-	}
-
+	
 	public List<String> getRoles() {
 		return roles;
 	}
-
+	@ManyToMany
+	@JoinTable(name="user_role", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="role_id"))
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
@@ -203,5 +201,8 @@ public class User implements Serializable {
 				", signUpDate=" + signUpDate +
 				", tUser='" + tUser + '\'' +
 				'}';
+	}
+	public String getPasswordHash() {
+		return passwordHash;
 	}
 }

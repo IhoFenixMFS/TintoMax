@@ -13,11 +13,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import es.tintomax.server.jpa.User;
+import es.tintomax.server.repositories.TestRepository;
 import es.tintomax.server.repositories.UserRepository;
 
-@Component
+
+
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
@@ -25,9 +28,9 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
-
-		User user = userRepository.findByDni(auth.getName());
-
+		System.out.println("\n\n\n\n"+auth.getName());
+		User user = userRepository.findByName(auth.getName());
+		//User user =null;
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}
