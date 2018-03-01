@@ -27,21 +27,38 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">TintoMax</a>
+            <a class="navbar-brand" href="./home.html">TintoMax</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="./home.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Ayuda</a>
-            </li> -->
-                </ul>
-                <a class="nav-link" href="./login.html">Inicio Sesión</a>
+                <ul class="nav navbar-right top-nav">
+          {{^user}}
+          <a class="nav-link" href="./login.html">Iniciar Sesión</a>
+          {{/user}}
+          {{#user}}
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{username}} </a>
+            <ul class="dropdown-menu">
+                 <li> <a href="datos_usuario.html" class="dropdown-element"><i class="fa fa-fw fa-drivers-license-o dropdown-element"></i> Datos</a> </li>
+                 <li class="divider"></li>
+                 {{^admin}}
+                 <li> <a href="servicios_cliente.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Encargos</a> </li>
+                 <li class="divider"></li>
+                 {{/admin}}
+                 {{#admin}}
+                 <li> <a href="administracion.html" class="dropdown-element"><i class="fa fa-fw fa-tasks dropdown-element"></i> Administración</a> </li>
+                 <li class="divider"></li>
+                 {{/admin}}
+                 <li> 
+                    <form action="/logout" method="post">
+						<input class="btn btn-danger btn-block" type="submit" value="Cerrar Sesión"></input>
+						<input type="hidden" name="_csrf" value="{{token}}"/>
+					</form>
+				</li>
+          	</ul>
+          </li>
+          {{/user}}
+        </ul>
             </div>
         </nav>
     </header>
@@ -53,113 +70,13 @@
       ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
         <div id="tablaPrecios">
-            <table>
-
-                <!--Usar atributo pages*
-                    foreach(entidades as entidad)
-                        var.='<tr>
-                                <td>/ . enditad->getatributo1() . '</td>
-                                <td>/ . enditad->getatributo2() . '</td>
-                                <td>/ . enditad->getatributo3() . '</td>
-                                ...
-                            </tr>'
-                -->
-                <tr>
-                    <th>Company</th>
-                    <th>Contact</th>
-                    <th>Country</th>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
-                </tr>
-                <tr>
-                    <td>Centro comercial Moctezuma</td>
-                    <td>Francisco Chang</td>
-                    <td>Mexico</td>
-                </tr>
-                <tr>
-                    <td>Ernst Handel</td>
-                    <td>Roland Mendel</td>
-                    <td>Austria</td>
-                </tr>
-                <tr>
-                    <td>Island Trading</td>
-                    <td>Helen Bennett</td>
-                    <td>UK</td>
-                </tr>
-                <tr>
-                    <td>Laughing Bacchus Winecellars</td>
-                    <td>Yoshi Tannamuri</td>
-                    <td>Canada</td>
-                </tr>
-                <tr>
-                    <th>Company</th>
-                    <th>Contact</th>
-                    <th>Country</th>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
-                </tr>
-                <tr>
-                    <td>Centro comercial Moctezuma</td>
-                    <td>Francisco Chang</td>
-                    <td>Mexico</td>
-                </tr>
-                <tr>
-                    <td>Ernst Handel</td>
-                    <td>Roland Mendel</td>
-                    <td>Austria</td>
-                </tr>
-                <tr>
-                    <td>Island Trading</td>
-                    <td>Helen Bennett</td>
-                    <td>UK</td>
-                </tr>
-                <tr>
-                    <td>Laughing Bacchus Winecellars</td>
-                    <td>Yoshi Tannamuri</td>
-                    <td>Canada</td>
-                </tr>
-                <tr>
-                    <th>Company</th>
-                    <th>Contact</th>
-                    <th>Country</th>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
-                </tr>
-                <tr>
-                    <td>Centro comercial Moctezuma</td>
-                    <td>Francisco Chang</td>
-                    <td>Mexico</td>
-                </tr>
-                <tr>
-                    <td>Ernst Handel</td>
-                    <td>Roland Mendel</td>
-                    <td>Austria</td>
-                </tr>
-                <tr>
-                    <td>Island Trading</td>
-                    <td>Helen Bennett</td>
-                    <td>UK</td>
-                </tr>
-                <tr>
-                    <td>Laughing Bacchus Winecellars</td>
-                    <td>Yoshi Tannamuri</td>
-                    <td>Canada</td>
-                </tr>
-                <tr>
-                    <td>Magazzini Alimentari Riuniti</td>
-                    <td>Giovanni Rovelli</td>
-                    <td>Italy</td>
-                </tr>
-            </table>
+        {{#precios}}
+       	    <div>
+            	{{name}}
+            	{{without_iva_cleaning}}
+            	{{without_iva_ironing}}
+            </div>
+        {{/precios}}
         </div>
         <!-- FOOTER -->
         <footer class="container pie">

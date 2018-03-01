@@ -15,23 +15,22 @@ public class Bill{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="num_bill")
 	private int numBill;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="bill_date")
 	private Date billDate;
 
-	@Column(name="name")
 	private String name;
 
-	@Column(name="without_iva_amount")
+
 	private double withoutIvaAmount;
 
 	//bi-directional many-to-one association to Receipt
 	@ManyToOne
-	@JoinColumn(name="id_ticket")
-	private Ticket id_ticket;
+	private Ticket ticket;
+
+	@ManyToOne
+	private Receipt receipt;
 
 	public Bill() {
 	}
@@ -53,14 +52,22 @@ public class Bill{
 		this.name = name;
 	}
 
-	
+
 	public double getWithoutIvaAmount() {
 		return this.withoutIvaAmount;
 	}
 
+	public Ticket getTicket() {
+		return this.ticket;
+	}
 
-	
-	
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
+
+
+
 	//Constructor
 	public Bill(int numBill,String name, Date billDate,double withoutIvaAmount){
 		this.numBill=numBill;
@@ -68,14 +75,13 @@ public class Bill{
 		this.billDate=billDate;
 		this.withoutIvaAmount=withoutIvaAmount;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Bill{" +
 				"numBill=" + numBill +
 				", billDate=" + billDate +
 				", name='" + name + '\'' +
-				", numTicket=" + id_ticket +
 				", withoutIvaAmount=" + withoutIvaAmount +
 				'}';
 	}

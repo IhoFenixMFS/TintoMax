@@ -22,40 +22,30 @@ public class User{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id_user")
 	private Long idUser;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
-	
-	@Column(name="address")
+
 	private String address;
 
-	@Column(name="dni")
 	private int dni;
 
-	@Column(name="email")
 	private String email;
 
-	@Column(name="last_names")
 	private String lastNames;
 
-	@Column(name="name")
 	private String name;
 
 	@Column(name="password")
-	private String password;
 	private String passwordHash;
-	
-	@Column(name="phone_number")
+
 	private int phoneNumber;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="sign_up_date")
 	private Date signUpDate;
 
-	@Column(name="t_user")
 	private String tUser;
 
 	@OneToMany(mappedBy="user")
@@ -125,12 +115,12 @@ public class User{
 		this.name = name;
 	}
 
-	public String getPassword() {
-		return this.password;
+	public String getPasswordHash() {
+		return this.passwordHash;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPasswordHash(String password) {
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 	}
 
 	public int getPhoneNumber() {
@@ -196,13 +186,10 @@ public class User{
 				", email='" + email + '\'' +
 				", lastNames='" + lastNames + '\'' +
 				", name='" + name + '\'' +
-				", password='" + password + '\'' +
+				", password='" + passwordHash + '\'' +
 				", phoneNumber=" + phoneNumber +
 				", signUpDate=" + signUpDate +
 				", tUser='" + tUser + '\'' +
 				'}';
-	}
-	public String getPasswordHash() {
-		return passwordHash;
 	}
 }

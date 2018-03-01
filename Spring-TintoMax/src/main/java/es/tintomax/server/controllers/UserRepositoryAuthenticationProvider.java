@@ -12,15 +12,13 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import es.tintomax.server.jpa.User;
-import es.tintomax.server.repositories.TestRepository;
 import es.tintomax.server.repositories.UserRepository;
+import org.springframework.stereotype.Component;
 
 
-
+@Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired

@@ -16,16 +16,12 @@ public class Garment{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="garment_number")
 	private int garmentNumber;
 
-	@Column(name="name")
 	private String name;
 
-	@Column(name="without_iva_cleaning")
 	private double withoutIvaCleaning;
 
-	@Column(name="without_iva_ironing")
 	private double withoutIvaIroning;
 
 	

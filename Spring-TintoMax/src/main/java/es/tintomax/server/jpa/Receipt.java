@@ -18,28 +18,21 @@ public class Receipt implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_receipt")
 	private int idReceipt;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="apx_output")
 	private Date apxOutput;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="entry_date")
 	private Date entryDate;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="real_output")
 	private Date realOutput;
 
-	@Column(name="state")
 	private String state;
 
-	@Column(name="total_garments")
 	private int totalGarments;
 
-	@Column(name="without_iva_total")
 	private double withoutIvaTotal;
 
 	//bi-directional many-to-one association to Bill
@@ -48,7 +41,6 @@ public class Receipt implements Serializable {
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="id_user")
 	private User user;
 
 	//bi-directional many-to-one association to Ticket
@@ -124,15 +116,11 @@ public class Receipt implements Serializable {
 
 	public Bill addBill(Bill bill) {
 		getBills().add(bill);
-		bill.setReceipt(this);
-
 		return bill;
 	}
 
 	public Bill removeBill(Bill bill) {
 		getBills().remove(bill);
-		bill.setReceipt(null);
-
 		return bill;
 	}
 
@@ -154,15 +142,11 @@ public class Receipt implements Serializable {
 
 	public Ticket addTicket(Ticket ticket) {
 		getTickets().add(ticket);
-		ticket.setReceipt(this);
-
 		return ticket;
 	}
 
 	public Ticket removeTicket(Ticket ticket) {
 		getTickets().remove(ticket);
-		ticket.setReceipt(null);
-
 		return ticket;
 	}
 

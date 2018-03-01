@@ -17,40 +17,32 @@ public class Ticket{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id_ticket")
 	private int id_ticket;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="apx_output")
 	private Date apxOutput;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="entry_date")
 	private Date entryDate;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="real_output")
 	private Date realOutput;
 
-	@Column(name="state")
 	private String state;
 
-	@Column(name="total_garments")
 	private int totalGarments;
 
-	@Column(name="without_iva_total")
 	private double withoutIvaTotal;
 
-	@OneToMany(mappedBy="id_ticket")
+	@OneToMany(mappedBy="ticket")
 	private List<Bill> bills;
 	
 	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="id_user")
 	private User user;
 
-	
-	
+	@ManyToOne
+	private Receipt receipt;
 
 	public Ticket() {
 	}
@@ -119,16 +111,20 @@ public class Ticket{
 		this.bills = bills;
 	}
 
-	
-
-	
-
 	public User getUser() {
 		return this.user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Receipt getReceipt() {
+		return receipt;
+	}
+
+	public void setReceipt(Receipt receipt) {
+		this.receipt = receipt;
 	}
 
 	
