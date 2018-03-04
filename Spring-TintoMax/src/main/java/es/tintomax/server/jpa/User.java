@@ -25,7 +25,8 @@ public class User{
 	private List<String> roles;
 
 	private String address;
-
+	
+	@Column(unique=true)
 	private String dni;
 
 	private String email;

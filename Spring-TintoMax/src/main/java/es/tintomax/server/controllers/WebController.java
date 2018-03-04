@@ -20,37 +20,47 @@ public class WebController {
     private UserRepository userRepository;
     
 
-	@RequestMapping("/home")
-	public String home(Model model) {
-
-		return "home";
-	}
+	
 	@RequestMapping(value="/home", method = RequestMethod.GET)
 	public String home(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    	String name = auth.getName(); //get logged in username
-		model.addAttribute("user", request.isUserInRole("USER"));
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
+	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user",(request.isUserInRole("EMPLOYEE")||
+				request.isUserInRole("CLIENT")||
+				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
 
 		return "home";
 	}
 
-	@RequestMapping("/")
-	public String index(Model model) {
-
+	@RequestMapping(value="/", method = RequestMethod.GET)
+	public String index(Model model,HttpServletRequest request) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
+	    model.addAttribute("client", request.isUserInRole("CLIENT"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user",(request.isUserInRole("EMPLOYEE")||
+				request.isUserInRole("CLIENT")||
+				request.isUserInRole("ADMIN")));
+		model.addAttribute("username",name);
 		
-
-		//	model.addAttribute("name", "World");
 
 		return "home";
 	}
 	@RequestMapping(value="/servicios_cliente",method = RequestMethod.GET)
 	public String servicios_cliente(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    	String name = auth.getName(); //get logged in username
-	    	model.addAttribute("user", request.isUserInRole("USER"));
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
+	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user",(request.isUserInRole("EMPLOYEE")||
+				request.isUserInRole("CLIENT")||
+				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
 
 
@@ -61,9 +71,13 @@ public class WebController {
 	public String datos_cliente(Model model,HttpServletRequest request) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    	String name = auth.getName(); //get logged in username
-	    	model.addAttribute("user", request.isUserInRole("USER"));
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
+	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user",(request.isUserInRole("EMPLOYEE")||
+				request.isUserInRole("CLIENT")||
+				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
 
 		return "datos_usuario";
@@ -71,39 +85,47 @@ public class WebController {
 	@RequestMapping("/login")
 	public String login(Model model) {
 
-	//	model.addAttribute("name", "World");
 
 		return "login";
 	}
 	@RequestMapping(value="/listado_precios",method = RequestMethod.GET)
 	public String precios(Model model,HttpServletRequest request) {
-
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    	String name = auth.getName(); //get logged in username
-	    	model.addAttribute("user", request.isUserInRole("USER"));
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
+	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user",(request.isUserInRole("EMPLOYEE")||
+				request.isUserInRole("CLIENT")||
+				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
 
 		return "listado_precios";
 	}
 	@RequestMapping(value="/administracion",method = RequestMethod.GET)
 	public String administracion(Model model,HttpServletRequest request) {
-
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    	String name = auth.getName(); //get logged in username
-	    	model.addAttribute("user", request.isUserInRole("USER"));
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
+	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user",(request.isUserInRole("EMPLOYEE")||
+				request.isUserInRole("CLIENT")||
+				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
 
 		return "administracion";
 	}
 	@RequestMapping(value="/localizacion",method = RequestMethod.GET)
 	public String localizacion(Model model,HttpServletRequest request) {
-
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    	String name = auth.getName(); //get logged in username
-	    	model.addAttribute("user", request.isUserInRole("USER"));
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
+	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user",(request.isUserInRole("EMPLOYEE")||
+				request.isUserInRole("CLIENT")||
+				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
 
 		return "localizacion";
