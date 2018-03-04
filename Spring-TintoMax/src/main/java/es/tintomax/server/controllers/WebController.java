@@ -68,7 +68,7 @@ public class WebController {
 	}
 	
 	@RequestMapping(value="/datos_usuario",method = RequestMethod.GET)
-	public String datos_cliente(Model model,HttpServletRequest request) {
+	public String datos_usuario(Model model,HttpServletRequest request) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String name = auth.getName(); //get logged in username
@@ -81,6 +81,21 @@ public class WebController {
 		model.addAttribute("username",name);
 
 		return "datos_usuario";
+	}
+	@RequestMapping(value="/editar_usuario",method = RequestMethod.GET)
+	public String editar_usuario(Model model,HttpServletRequest request) {
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
+	    model.addAttribute("client", request.isUserInRole("CLIENT"));
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user",(request.isUserInRole("EMPLOYEE")||
+				request.isUserInRole("CLIENT")||
+				request.isUserInRole("ADMIN")));
+		model.addAttribute("username",name);
+
+		return "editar_usuario";
 	}
 	@RequestMapping("/login")
 	public String login(Model model) {
