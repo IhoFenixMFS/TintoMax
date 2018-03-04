@@ -22,7 +22,7 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" rel="stylesheet">
-    <link href="css/datos_usuario.css" rel="stylesheet">
+    <link href="css/editar_usuario.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> </head>
 
 <body>
@@ -61,30 +61,26 @@
         </nav>
     </header>
     <main id="page-top" role="main">
-        <h3 id="titulo">En esta sección encontrará sus datos personales:</h3>
+        <h3 id="titulo">En esta sección podrá editar sus datos personales:</h3>
         <div id="data">
-            <ul id="userdata">
-                <li>
-                    Nombre
-                </li>
-                <li>
-                    Apellido1 Apellido2
-                </li>
-                <li>
-                    DNI
-                </li>
-                <li>
-                    Dirección
-                </li>
-                <li>
-                    E-Mail
-                </li>
-                <button id="editbtn" type="button"><a href="editar_usuario.html">Editar</a></button>
-            </ul>
+            <form action="/action_page.php">
+              Nombre:<br>
+              <input type="text" name="firstname" value="Mickey">
+              <br>
+              Apellidos:<br>
+              <input type="text" name="lastname" value="Mouse">
+              <br>
+              Dirección:
+              <br>
+                <input type="text" name="lastname" value="C/ Piruleta">
+                <br>
+              Email:<br>
+              <input type="text" name="lastname" value="mmouse@disney.com">
+            </form> 
+            <img id="dressimg" src="images/dresses.jpg">
             
-            <img id="suitsimg" src="images/suits.jpeg">
         </div>
-        
+        <button id="savebtn" type="button">Guardar</button>
         <!-- Marketing messaging and featurettes
       ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
