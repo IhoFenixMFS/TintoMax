@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+      <style>
+       
+#div2 {margin-top: 50px; margin-bottom: 10px; !important}
+#div3 {margin-top: 10px; visibility:hidden; margin-bottom: 200px; !important}
+#bottomSearch {margin-left: 300px; margin-top: 10px;}
+#barr { list-style-type:none;}
+          #bot1, #bot2, bot3, botNeg {float:left; margin-left: 5px; margin-right: 5px;} 
+#bottom-alta { margin-left: 150px;;
+    
+          }
+#popup {visibility: hidden;
+        opacity: 0;
+        margin-top: -300px;
+        }
+#popup:target {
+   visibility:visible;
+   opacity: 1;
+   background-color: rgba(0,0,0,0.8);
+   position: fixed;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   margin:0;
+   z-index: 999;
+   transition:all 1s;
+}
+.popup-contenedor {
+   position: relative;
+   margin:7% auto;
+   padding:40px 50px;
+   background-color: #fafafa;
+   color:#333;
+   border-radius: 3px;
+   width:50%;
+}
+          
+#popup-alta {visibility: hidden;
+        opacity: 0;
+        margin-top: -300px;
+        }
+#popup-alta:target {
+   visibility:visible;
+   opacity: 1;
+   background-color: rgba(0,0,0,0.8);
+   position: fixed;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   margin:0;
+   z-index: 999;
+   transition:all 1s;
+}
+.popup-contenedor-alta {
+   position: relative;
+   margin:7% auto;
+   padding:40px 50px;
+   background-color: #fafafa;
+   color:#333;
+   border-radius: 3px;
+   width:50%;
+}
+a.popup-cerrar {
+   position: absolute;
+   top:3px;
+   right:3px;
+   background-color: #333;
+   padding:7px 10px;
+   font-size: 20px;
+   text-decoration: none;
+   line-height: 1;
+   color:#fff;
+}
+      </style>  
+
+    <title>TintoMax - Tu tintorería de confianza</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/portfolio-item.css" rel="stylesheet">
+         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../../../../favicon.ico">
+      
+              <script> 
+        function abrir(url) { 
+        open(url,'','top=300,left=300,width=300,height=300') ; 
+        } 
+        </script>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">TintoMax</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Ayuda</a>
+            </li> -->
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <a class="nav-link" href="./login_cliente.html">Inicio Sesión</a>
+          </form>
+        </div>
+      </nav>
+      </header>
+
+    <!-- Page Content -->
+    <div id="inicio" class="container">
+            
+      <!-- Portfolio Item Heading -->
+            <div id= "div2" class="container">
+                <label for="exampleInputTicket">Buscar Ticket</label>
+                <input class="form-control" id="exampleInputTicket" type="email" aria-describedby="emailHelp" placeholder="Introduzca su DNI">
+                 <a class="btn btn-primary btn-xs"  id="bottomSearch" href="#popup" onClick="document.getElementById('div3').style.visibility='visible'">Buscar</a>
+            </div>
+            <div class="modal-wrapper" id="popup">
+                <div class="popup-contenedor">
+                    <h2>Error en la búsqueda</h2>
+                    <p>No se ha encontrado ningún usuario con el DNI introducido. ¿Desea crear un usuario con ese DNI?</p>
+                    <ul id="barr" >
+                        <li id="bot1">
+                            <a class="btn btn-primary btn-xs" href="#popup-alta">Sí</a>
+                        </li>
+                        <li id="botNeg">
+                            <a class="btn btn-primary btn-xs" onClick="document.getElementById('exampleInputTicket').value=''" href="#">No</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+<div class="modal-wrapper" id="popup-alta">
+                <div class="popup-contenedor-alta">
+                   <h2>Registrar un nuevo cliente</h2>
+                    <p align="left"><b><i>DNI <input size=20  type="text" name="Dato1" > </i></b></p>
+                    <p align="left"><b><i>Nombre <input size=20 type="text" name="Dato2" > </i></b></p>
+                    <p align="left"><b><i>Apellidos <input size=20 type="text" name="Dato3" > </i></b></p>
+                    <p align="left"><b><i>Correo <input size=20  type="text" name="Dato4" > </i></b></p>
+                    <p align="left"><b><i>Telefono <input size=20  type="text" name="Dato5" > </i></b></p>
+                    <p align="left"><b><i>Dirección <input type="text" size=20  name="Dato6" > </i></b></p>
+                    <a class="popup-cerrar" href="#">X</a>
+                    <a class="btn btn-primary btn-xs" id="bottom-alta">Registrar</a>
+
+                </div>
+            </div>
+            <div id= "div3" class="container">
+            <p>Aqui aparecerian el listado de tickets del DNI Asociado</p>
+            <ul id="barr">
+               
+                <li id="bot2">
+                    <button type="button" class="btn btn-default" href="home.html">
+                        <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Vista previa
+                    </button>
+                </li> 
+                <li id="bot3">
+                    <button type="button" class="btn btn-default" href="Servicios.html">
+                        <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; Servicio
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.container -->
+    <hr class="featurette-divider">
+    <!-- Footer -->
+    <footer class="container">
+        <p class="float-right"><a href="#inicio">Volver al inicio</a></p>
+        <p>&copy; 2017-2018 TintoMax, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
