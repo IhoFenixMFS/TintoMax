@@ -63,19 +63,19 @@
     <main id="page-top" role="main">
         <h3 id="titulo">En esta sección podrá editar sus datos personales:</h3>
         <div id="data">
-            <form action="/action_page.php">
+            <form id="dataform" action="/action_page.php">
               Nombre:<br>
-              <input type="text" name="firstname" value="Mickey">
+              <input type="text" name="firstname" value={{username}}>
               <br>
               Apellidos:<br>
-              <input type="text" name="lastname" value="Mouse">
+              <input type="text" name="lastname" value={{surname}}>
               <br>
               Dirección:
               <br>
-                <input type="text" name="lastname" value="C/ Piruleta">
+                <input type="text" name="address" value={{address}}>
                 <br>
               Email:<br>
-              <input type="text" name="lastname" value="mmouse@disney.com">
+              <input type="text" name="email" value={{email}}>
             </form> 
             <img id="dressimg" src="images/dresses.jpg">
             
