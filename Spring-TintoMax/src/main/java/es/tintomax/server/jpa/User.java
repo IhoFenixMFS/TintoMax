@@ -28,7 +28,9 @@ public class User{
 	
 	@Column(unique=true)
 	private String dni;
-
+	@OneToMany
+	private List<Ticket> tickets;
+	
 	private String email;
 
 	private String lastNames;

@@ -26,7 +26,7 @@ public class Bill{
 	private double withoutIvaAmount;
 
 	@OneToOne
-	private Receipt receipt;
+	private Ticket ticket;
 
 	public Bill() {
 	}
@@ -48,12 +48,12 @@ public class Bill{
 		this.name = name;
 	}
 
-	public Receipt getReceipt() {
-		return this.receipt;
+	public Ticket getTicket() {
+		return this.ticket;
 	}
 
-	public void setReceipt(Receipt receipt) {
-		this.receipt = receipt;
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
 	}
 
 

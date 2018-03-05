@@ -24,7 +24,10 @@ public class WebController {
 	@RequestMapping(value="/home", method = RequestMethod.GET)
 	public String home(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
+	    String dni = auth.getName(); //get logged in username
+	    String name="";
+	    if(userRepository.findByDni(dni)!=null)
+	    	name=userRepository.findByDni(dni).getName();
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -39,7 +42,10 @@ public class WebController {
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String index(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
+	    String dni = auth.getName(); //get logged in username
+	    String name="";
+	    if(userRepository.findByDni(dni)!=null)
+	    	name=userRepository.findByDni(dni).getName();
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -54,7 +60,10 @@ public class WebController {
 	@RequestMapping(value="/servicios_cliente",method = RequestMethod.GET)
 	public String servicios_cliente(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
+	    String dni = auth.getName(); //get logged in username
+	    String name="";
+	    if(userRepository.findByDni(dni)!=null)
+	    	name=userRepository.findByDni(dni).getName();
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -71,7 +80,11 @@ public class WebController {
 	public String datos_usuario(Model model,HttpServletRequest request) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
+	    String dni = auth.getName(); //get logged in username
+	    String name="";
+	    if(userRepository.findByDni(dni)!=null)
+	    	name=userRepository.findByDni(dni).getName();
+	    
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -79,14 +92,20 @@ public class WebController {
 				request.isUserInRole("CLIENT")||
 				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
-
+		model.addAttribute("surname",userRepository.findByDni(dni).getLastNames());
+		model.addAttribute("dni",dni);
+		model.addAttribute("address",userRepository.findByDni(dni).getAddress());
+		model.addAttribute("email",userRepository.findByDni(dni).getEmail());
 		return "datos_usuario";
 	}
 	@RequestMapping(value="/editar_usuario",method = RequestMethod.GET)
 	public String editar_usuario(Model model,HttpServletRequest request) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
+	    String dni = auth.getName(); //get logged in username
+	    String name="";
+	    if(userRepository.findByDni(dni)!=null)
+	    	name=userRepository.findByDni(dni).getName();
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -94,6 +113,10 @@ public class WebController {
 				request.isUserInRole("CLIENT")||
 				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
+		model.addAttribute("surname",userRepository.findByDni(dni).getLastNames());
+		model.addAttribute("dni",dni);
+		model.addAttribute("address",userRepository.findByDni(dni).getAddress());
+		model.addAttribute("email",userRepository.findByDni(dni).getEmail());
 
 		return "editar_usuario";
 	}
@@ -106,7 +129,10 @@ public class WebController {
 	@RequestMapping(value="/listado_precios",method = RequestMethod.GET)
 	public String precios(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
+	    String dni = auth.getName(); //get logged in username
+	    String name="";
+	    if(userRepository.findByDni(dni)!=null)
+	    	name=userRepository.findByDni(dni).getName();
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -120,7 +146,10 @@ public class WebController {
 	@RequestMapping(value="/administracion",method = RequestMethod.GET)
 	public String administracion(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
+	    String dni = auth.getName(); //get logged in username
+	    String name="";
+	    if(userRepository.findByDni(dni)!=null)
+	    	name=userRepository.findByDni(dni).getName();
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -134,7 +163,10 @@ public class WebController {
 	@RequestMapping(value="/localizacion",method = RequestMethod.GET)
 	public String localizacion(Model model,HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
+	    String dni = auth.getName(); //get logged in username
+	    String name="";
+	    if(userRepository.findByDni(dni)!=null)
+	    	name=userRepository.findByDni(dni).getName();
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));

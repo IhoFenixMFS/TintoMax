@@ -1,4 +1,4 @@
-package es.tintomax.server.jpa;
+/*package es.tintomax.server.jpa;
 
 import javax.persistence.*;
 
@@ -11,7 +11,7 @@ public class Detail {
 
     //bi-directional many-to-one association to User
     @ManyToOne
-    private Receipt receipt;
+    private Ticket ticket;
 
     @OneToOne
     private Garment garment;
@@ -24,20 +24,20 @@ public class Detail {
 
     public Detail() {}
 
-    public Detail(Receipt receipt, Garment garment, int numGarments, String service, int price) {
-        this.receipt = receipt;
+    public Detail(Ticket ticket, Garment garment, int numGarments, String service, int price) {
+        this.ticket = ticket;
         this.garment = garment;
         this.numGarments = numGarments;
         this.service = service;
         this.price = price;
     }
 
-    public Receipt getReceipt() {
-        return receipt;
+    public Ticket getTicket() {
+        return ticket;
     }
 
-    public void setReceipt(Receipt receipt) {
-        this.receipt = receipt;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 
     public Garment getGarment() {
@@ -71,4 +71,4 @@ public class Detail {
     public void setPrice(int price) {
         this.price = price;
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package es.tintomax.server.repositories;
+/*package es.tintomax.server.repositories;
 
 import es.tintomax.server.jpa.Detail;
 
@@ -8,3 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface DetailRepository extends JpaRepository<Detail, Integer> {
 
 }
+*/

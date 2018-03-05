@@ -1,6 +1,8 @@
 package es.tintomax.server.controllers;
 
+import es.tintomax.server.jpa.Ticket;
 import es.tintomax.server.jpa.User;
+import es.tintomax.server.repositories.TicketRepository;
 import es.tintomax.server.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,7 +15,7 @@ import java.util.Date;
 public class DataBaseLoader {
 
     @Autowired private UserRepository userRepository;
-
+    @Autowired private TicketRepository ticketRepository;
     @PostConstruct
     public void init(){
     	// User user1 =  new User("o", "Omi", "Fernandez", "Calle Tulipan s/n", "marina@marina", Calendar.getInstance(), 1234 ,"1234", "ROLE_ADMIN");
@@ -23,17 +25,29 @@ public class DataBaseLoader {
         User user2 =  new User("987641V", "Ana", "Fernandez", "Calle Tulipan s/n", "ana@marina", Calendar.getInstance(), 2222,"1234", "ROLE_EMPLOYEE");
         User user3 =  new User("0000000V", "Juan", "Fernandez", "Calle Tulipan s/n", "juan@marina", Calendar.getInstance(), 33333, "1234", "ROLE_CLIENT");
         User user4 =  new User("1234563A", "Luis", "Fernandez", "Calle Tulipan s/n", "luis@marina", Calendar.getInstance(), 44444, "1234", "ROLE_CLIENT");
-        
-        //posteriormente, para almacenarlo, con el este método se le pasa el obj antes creado del tipo user.
-      
         if(userRepository.findByDni("123456V")==null)
-        	userRepository.save(user1);
+        	user1=userRepository.save(user1);
+        user1=userRepository.findByDni("123456V");
         if(userRepository.findByDni("987641V")==null)
-	        userRepository.save(user2);
+	        user2=userRepository.save(user2);
+        user2=userRepository.findByDni("987641V");
         if(userRepository.findByDni("0000000V")==null)
-	        userRepository.save(user3);
+	        user3=userRepository.save(user3);
+        user3=userRepository.findByDni("0000000V");
         if(userRepository.findByDni("1234563A")==null)
-	        userRepository.save(user4);
+	        user4=userRepository.save(user4);
+        user4=userRepository.findByDni("1234563A");
+        Ticket t1= new Ticket (user3, 2, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 11.1,"Pendiente");
+        Ticket t2= new Ticket (user3, 1, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 12.2,"Pendiente");
+        Ticket t3= new Ticket (user3, 1, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 13.3,"Listo");
+        Ticket t4= new Ticket (user3, 1, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 14.4,"Recogido");
+        Ticket t5= new Ticket (user3, 1, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 15.5,"Recogido");
+        
+        ticketRepository.save(t1);
+       ticketRepository.save(t2);
+       ticketRepository.save(t3);
+       ticketRepository.save(t4);
+       ticketRepository.save(t5);
 	     	
     }
 }
