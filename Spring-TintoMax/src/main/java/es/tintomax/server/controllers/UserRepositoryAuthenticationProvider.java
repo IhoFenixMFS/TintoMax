@@ -28,7 +28,6 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 		
 		User user = userRepository.findByDni(auth.getName());
-		System.out.println("@@@@@@@"+auth.getName());
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}
@@ -42,7 +41,6 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 		for (String role : user.getRoles()) {
 			roles.add(new SimpleGrantedAuthority(role));
 		}
-		System.out.println(user.getName()+":::"+password+":::"+roles.toString());
 		
 		return new UsernamePasswordAuthenticationToken(user.getDni(), password, roles);
 	}

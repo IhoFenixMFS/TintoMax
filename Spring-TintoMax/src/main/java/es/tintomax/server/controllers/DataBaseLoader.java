@@ -8,6 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -37,17 +44,27 @@ public class DataBaseLoader {
         if(userRepository.findByDni("1234563A")==null)
 	        user4=userRepository.save(user4);
         user4=userRepository.findByDni("1234563A");
-        Ticket t1= new Ticket (user3, 2, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 11.1,"Pendiente");
-        Ticket t2= new Ticket (user3, 1, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 12.2,"Pendiente");
-        Ticket t3= new Ticket (user3, 1, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 13.3,"Listo");
-        Ticket t4= new Ticket (user3, 1, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 14.4,"Recogido");
-        Ticket t5= new Ticket (user3, 1, Calendar.getInstance(), Calendar.getInstance(), Calendar.getInstance(), 15.5,"Recogido");
         
-        ticketRepository.save(t1);
+        
+        
+        
+        
+        
+        Ticket t1= new Ticket (user3, 2, LocalDate.now().toString(), LocalDate.now().toString(), LocalDate.now().toString(), 11.1,"Pendiente");
+        Ticket t2= new Ticket (user3, 1, LocalDate.now().toString(), LocalDate.now().toString(), LocalDate.now().toString(), 12.2,"Pendiente");
+        Ticket t3= new Ticket (user3, 1, LocalDate.now().toString(), LocalDate.now().toString(), LocalDate.now().toString(), 13.3,"Listo");
+        Ticket t4= new Ticket (user3, 1, LocalDate.now().toString(), LocalDate.now().toString(), LocalDate.now().toString(), 14.4,"Recogido");
+        Ticket t5= new Ticket (user3, 1, LocalDate.now().toString(), LocalDate.now().toString(), LocalDate.now().toString(), 15.5,"Recogido");
+        
+       /*ticketRepository.save(t1);
        ticketRepository.save(t2);
        ticketRepository.save(t3);
        ticketRepository.save(t4);
        ticketRepository.save(t5);
-	     	
+       for(int i=0;i<25;i++)
+    	   ticketRepository.save(new Ticket (user3, 1, LocalDate.now().toString(), LocalDate.now().toString(), LocalDate.now().toString(), i,"Recogido"));
+       for(int i=0;i<25;i++)
+    	   ticketRepository.save(new Ticket (user3, 1, LocalDate.now().toString(), LocalDate.now().toString(), LocalDate.now().toString(), i,"Listo"));
+    */
     }
 }

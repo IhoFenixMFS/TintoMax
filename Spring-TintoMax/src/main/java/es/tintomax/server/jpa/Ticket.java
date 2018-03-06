@@ -1,8 +1,8 @@
 package es.tintomax.server.jpa;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -22,14 +22,11 @@ public class Ticket implements Serializable {
 	@Column(name = "id", updatable = false, nullable = false)
 	private long id;
 	
-	@Temporal(TemporalType.DATE)
-	private Calendar apxOutput;
+	private String apxOutput;
 
-	@Temporal(TemporalType.DATE)
-	private Calendar entryDate;
+	private String entryDate;
 
-	@Temporal(TemporalType.DATE)
-	private Calendar realOutput;
+	private String realOutput;
 
 	private String status;
 
@@ -43,8 +40,9 @@ public class Ticket implements Serializable {
 
 
 	
-
-	public Ticket(User user,int totalGarments, Calendar entryDate, Calendar apxOutput, Calendar realOutput, double withoutIvaTotal,String status) {
+	public Ticket(){
+	}
+	public Ticket(User user,int totalGarments, String entryDate, String apxOutput, String realOutput, double withoutIvaTotal,String status) {
 		this.user=user;
 		this.totalGarments=totalGarments;
 		this.entryDate=entryDate;
@@ -62,27 +60,27 @@ public class Ticket implements Serializable {
 		this.id = id;
 	}
 
-	public Calendar getApxOutput() {
+	public String getApxOutput() {
 		return this.apxOutput;
 	}
 
-	public void setApxOutput(Calendar apxOutput) {
+	public void setApxOutput(String apxOutput) {
 		this.apxOutput = apxOutput;
 	}
 
-	public Calendar getEntryDate() {
+	public String getEntryDate() {
 		return this.entryDate;
 	}
 
-	public void setEntryDate(Calendar entryDate) {
+	public void setEntryDate(String entryDate) {
 		this.entryDate = entryDate;
 	}
 
-	public Calendar getRealOutput() {
+	public String getRealOutput() {
 		return this.realOutput;
 	}
 
-	public void setRealOutput(Calendar realOutput) {
+	public void setRealOutput(String realOutput) {
 		this.realOutput = realOutput;
 	}
 

@@ -27,9 +27,7 @@ class CSRFHandlerInterceptor extends HandlerInterceptorAdapter {
             final ModelAndView modelAndView) throws Exception {
 
 		CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-		System.out.println("!!!!!!!!!");
     	modelAndView.addObject("token", token.getToken());  
-		System.out.println("????????");
 
     }
 }
