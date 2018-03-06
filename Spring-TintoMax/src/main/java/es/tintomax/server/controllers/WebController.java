@@ -66,7 +66,10 @@ public class WebController {
 		return "home";
 	}
 	@RequestMapping(value="/servicios_cliente",method = RequestMethod.GET)
-	public String servicios_cliente(Model model,Pageable page,HttpServletRequest request,@RequestParam(name = "actpage", required = false, defaultValue = "0") Integer actpage,@RequestParam(name = "oldpage", required = false, defaultValue = "0") Integer oldpage) {
+	public String servicios_cliente(Model model,Pageable page,HttpServletRequest request,
+			@RequestParam(name = "actpage", required = false, defaultValue = "0") Integer actpage,
+			@RequestParam(name = "oldpage", required = false, defaultValue = "0") Integer oldpage,
+			@RequestParam(name = "activetab", required = false, defaultValue = "Pendientes") String activetab){
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String dni = auth.getName(); //get logged in username
@@ -93,6 +96,7 @@ public class WebController {
 	    model.addAttribute("nextOldPage",oldTickets.getNumber()+1);
 	    model.addAttribute("actPage",activeTickets.getNumber());
 	    model.addAttribute("oldPage",oldTickets.getNumber());
+	    model.addAttribute("activetab",activetab);
 	    
 	    model.addAttribute("employee", request.isUserInRole("EMPLOYEE"));
 	    model.addAttribute("client", request.isUserInRole("CLIENT"));
@@ -101,7 +105,6 @@ public class WebController {
 				request.isUserInRole("CLIENT")||
 				request.isUserInRole("ADMIN")));
 		model.addAttribute("username",name);
-
 
 		return "servicios_cliente";
 	}
