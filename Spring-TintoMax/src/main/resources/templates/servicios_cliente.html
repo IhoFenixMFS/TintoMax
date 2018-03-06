@@ -24,7 +24,7 @@
     <link href="/css/servicios_cliente.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> </head>
 
-<body>
+<body onload="openTab(event, '{{activetab}}')">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <a class="navbar-brand" href="./home.html">TintoMax</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
@@ -64,8 +64,8 @@
         <h3 id="titulo">En esta sección encontrará una lista de todos los servicios que ha contratado con nosotros:</h3>
         <div class="container">
             <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'Pendientes')" id="defaultOpen">Pendientes</button>
-                <button class="tablinks" onclick="openCity(event, 'Recogidos')">Recogidos</button>
+                <button class="tablinks" onclick="openTab(event, 'Pendientes')" id="defaultOpen">Pendientes</button>
+                <button class="tablinks" onclick="openTab(event, 'Recogidos')">Recogidos</button>
             </div>
             <div id="Pendientes" class="tabcontent">
                 <table>
@@ -89,10 +89,10 @@
                 </table>
                 <div id="btndiv">
 		    {{#showPrevActive}}
-                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{prevActPage}}&oldpage={{oldPage}}">❮ Anterior</a>
+                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{prevActPage}}&oldpage={{oldPage}}&activetab=Pendientes">❮ Anterior</a>
 		    {{/showPrevActive}}
 		    {{#showNextActive}}
-                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{nextActPage}}&oldpage={{oldPage}}">Siguiente ❯</a>
+                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{nextActPage}}&oldpage={{oldPage}}&activetab=Pendientes">Siguiente ❯</a>
 		    {{/showNextActive}}
                 </div>
 
@@ -119,10 +119,10 @@
                 </table>
                 <div id="btndiv">
 		    {{#showPrevOld}}
-                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{actPage}}&oldpage={{prevOldPage}}">❮ Anterior</a>
+                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{actPage}}&oldpage={{prevOldPage}}&activetab=Recogidos">❮ Anterior</a>
 		    {{/showPrevOld}}
 		    {{#showNextOld}}
-                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{actPage}}&oldpage={{nextOldPage}}">Siguiente ❯</a>
+                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{actPage}}&oldpage={{nextOldPage}}&activetab=Recogidos">Siguiente ❯</a>
 		    {{/showNextOld}}
                 </div>
             </div>
@@ -168,7 +168,7 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script>
-        function openCity(evt, cityName) {
+        function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
@@ -178,12 +178,14 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(cityName).style.display = "block";
+            document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+	    
         }
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+    
     
 </body>
 
