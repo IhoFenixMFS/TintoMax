@@ -68,8 +68,15 @@ tr:nth-child(even) {
     transition: 0.3s;
     font-size: 17px;
 }
-
-
+#btndiv{
+    text-align: center;
+}
+#pgbtn{
+    position: relative;
+    width: 9%;
+    margin: 5px;
+    margin-top: 15px;
+}
 /* Change background color of buttons on hover */
 
 .tab button:hover {
