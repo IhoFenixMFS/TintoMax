@@ -12,16 +12,16 @@
     <title>TintoMax - Tu tintorería de confianza</title>
     <!-- Bootstrap core CSS -->
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="/css/sb-admin.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
-    <link href="css/servicios_cliente.css" rel="stylesheet">
+    <link href="/css/carousel.css" rel="stylesheet">
+    <link href="/css/servicios_cliente.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> </head>
 
 <body>
@@ -76,49 +76,26 @@
                         <th>Finalización Prevista</th>
                         <th>Estado</th>
                     </tr>
-                    <tr>
-                        <td>1234XOM</td>
-                        <td>1</td>
-                        <td>15-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td>Pendiente</td>
+                    {{#activeTickets}}
+		    <tr>
+                        <td>{{id}}</td>
+                        <td>{{totalGarments}}</td>
+                        <td>{{entryDate}}</td>
+                        <td>{{apxOutput}}</td>
+                        <td>{{status}}</td>
                     </tr>
-                    <tr>
-                        <td>6660SYM</td>
-                        <td>5</td>
-                        <td>15-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                        <td>8769UIH</td>
-                        <td>2</td>
-                        <td>16-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                        <td>7582YHG</td>
-                        <td>21</td>
-                        <td>1-4-2018</td>
-                        <td>2-4-2018</td>
-                        <td>Listo</td>
-                    </tr>
-                    <tr>
-                        <td>0987POK</td>
-                        <td>4</td>
-                        <td>15-4-2018</td>
-                        <td>16-4-2018</td>
-                        <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                        <td>6589KIL</td>
-                        <td>1</td>
-                        <td>15-4-2018</td>
-                        <td>16-4-2018</td>
-                        <td>Pendiente</td>
-                    </tr>
+		    {{/activeTickets}}
+                    
                 </table>
+                <div id="btndiv">
+		    {{#showPrevActive}}
+                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{prevActPage}}&oldpage={{oldPage}}">❮ Anterior</a>
+		    {{/showPrevActive}}
+		    {{#showNextActive}}
+                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{nextActPage}}&oldpage={{oldPage}}">Siguiente ❯</a>
+		    {{/showNextActive}}
+                </div>
+
             </div>
             <div id="Recogidos" class="tabcontent">
                 <table>
@@ -127,94 +104,27 @@
                         <th>Nº Prendas</th>
                         <th>Entregado</th>
                         <th>Recogido</th>
-                        <th>Factura</th>
+                       <!-- <th>Factura</th>-->
                     </tr>
+		    {{#oldTickets}}
                     <tr>
-                        <td>1234XOM</td>
-                        <td>1</td>
-                        <td>15-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
+                        <td>{{id}}</td>
+                        <td>{{totalGarments}}</td>
+                        <td>{{entryDate}}</td>
+                        <td>{{realOutput}}</td>
+                        <!--<td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>-->
                     </tr>
-                    <tr>
-                        <td>6660SYM</td>
-                        <td>5</td>
-                        <td>15-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>8769UIH</td>
-                        <td>2</td>
-                        <td>16-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>7582YHG</td>
-                        <td>21</td>
-                        <td>1-4-2018</td>
-                        <td>2-4-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>0987POK</td>
-                        <td>4</td>
-                        <td>15-4-2018</td>
-                        <td>16-4-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>6589KIL</td>
-                        <td>1</td>
-                        <td>15-4-2018</td>
-                        <td>16-4-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>1234XOM</td>
-                        <td>1</td>
-                        <td>15-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>6660SYM</td>
-                        <td>5</td>
-                        <td>15-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>8769UIH</td>
-                        <td>2</td>
-                        <td>16-3-2018</td>
-                        <td>16-3-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>7582YHG</td>
-                        <td>21</td>
-                        <td>1-4-2018</td>
-                        <td>2-4-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>0987POK</td>
-                        <td>4</td>
-                        <td>15-4-2018</td>
-                        <td>16-4-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>6589KIL</td>
-                        <td>1</td>
-                        <td>15-4-2018</td>
-                        <td>16-4-2018</td>
-                        <td><button class="pdfbtn"> <i class="fa fa-file-pdf-o"></i></button></td>
-                    </tr>
+		    {{/oldTickets}}
+                    
                 </table>
-                
+                <div id="btndiv">
+		    {{#showPrevOld}}
+                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{actPage}}&oldpage={{prevOldPage}}">❮ Anterior</a>
+		    {{/showPrevOld}}
+		    {{#showNextOld}}
+                    <a id="pgbtn" class="btn-primary btn" href="/servicios_cliente/?actpage={{actPage}}&oldpage={{nextOldPage}}">Siguiente ❯</a>
+		    {{/showNextOld}}
+                </div>
             </div>
         </div>
         <!-- Marketing messaging and featurettes
