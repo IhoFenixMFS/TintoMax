@@ -3,13 +3,12 @@
 * Listados => 1 </br>
 * Tiket  	=>	2 </br>
 * Inf. Contacto y como llegar	=>	4 </br>
-* Fichar	=>	5 </br>
 * Administrar	=>	6 </br>
 </br>
-<h1>1A</h1><h2>LISTADOS</h2> </br>
+<h1>1A</h1><h2>LISTADOS (si eres usuario anónimo)</h2> </br>
 * Precios	=>	Vista del listado </br>
  </br>
-<h1>1B</h1><h2>LISTADOS</h2> </br>
+<h1>1B</h1><h2>LISTADOS (si eres admin/cliente/empleado</h2> </br>
 * Tikets	=>	Vista de los tikets asociados al cliente </br>
 * Buscar	=>	pop-up buscar	=>	Vista del resultado de la búsqueda </br>
  </br>
@@ -43,10 +42,10 @@
 <h1>6</h1><h2>ADMINISTRAR</h2> </br>
 * Editar inf. Contacto y como legar	=>	5 </br>
 * Nuevo cliente	=>	7 </br>
-* Nuevo empleado	=>	9 </br>
+* Nuevo empleado	=>	7 </br>
 * Modificar precios	=>	10 </br>
  </br>
-<h1>7</h1><h2>NUEVO CLIENTE</h2> </br>
+<h1>7</h1><h2>NUEVO CLIENTE / EMPLEADO</h2> </br>
 * Nombre </br>
 * Apellidos </br>
 * Dirección </br>
@@ -54,35 +53,41 @@
 * Tlf. </br>
 * E-mail </br>
 * Password	=>	se muestra la pass automática al pulsar comprobar y estar todo correcto </br>
-* Comprobar => pop-up: “El cliente ya existe” (limpia los campos) ; “El cliente no existe” (activa el botón guardar, genera la password) </br>
 * Guardar	=>	Guarda los datos en la BBDD </br>
  </br>
-<h1>8</h1><h2>SERVICIO</h2> </br>
+<h1>8</h1><h2>NUEVA PRENDA</h2> </br>
+* Nombre
 * Servicio	=>	Desplegable (Limpieza / plancha) </br>
-* Unidades	=>	1 por defecto </br>
-* Precio	=>	Se puede cambiar, por defecto el de la BBDD </br>
-* Cargar	=>	Carga los datos en el tiket </br>
+* Precio	</br>
+* Guardar	</br>
  </br>
-<h1>9</h1><h2>NUEVO EMPLEADO</h2> </br>
-* Nombre </br>
-* Apellidos </br>
-* Dirección </br>
-* DNI </br>
-* Tlf. </br>
-* E-mail </br>
-* Fecha Alta => Botón calendario </br>
-* Password => se muestra la pass automática al pulsar comprobar y estar todo correcto </br>
-* Comprobar => pop-up: “El cliente ya existe” (limpia los campos) ; “El cliente no existe” (activa el botón guardar, genera la password) </br>
-* Guardar => Guarda los datos en la BBDD </br>
+<h1>9</h1><h2> FACTURAS </h2> </br>
+* Nueva		=>	14
+* Listado	=>	Muestra el listado de facturas
  </br>
 <h1>10</h1><h2>MODIFICAR PRECIOS</h2> </br>
-* Buscar prenda	=>	busca por nombre y se cargan los precios de la BBDD </br>
-* Plancha ant. 	=>	Muestra el antiguo precio </br>
-* Plancha nuevo	=>	para introducir el nuevo precio (por defecto pone el anterior) </br>
-* Plancha nuevo s/iva	=>	Calcula el precio nuevo s/iva </br>
-* Limpieza ant. 	=>	Muestra el antiguo precio </br>
-* Limpieza nuevo	=>	para introducir el nuevo precio(por defecto pone el anterior) </br>
+* Nombre prenda	=>	desplegable de búsqueda </br>
+* Servicio =>		desplegable de servicio
 * Limpieza nuevo s/iva	=>	Calcula el precio nuevo s/iva </br>
 * Guardar	=>	pop-up “Precios actualizados” </br>
  </br>
- 
+ <h1>11</h1><h2>Promociones</h2> </br>
+* Listado de las promociones </br>
+* Nueva		=>	12 </br>
+* Borrar		=>	13 </br>
+</br>
+<h1>12</h1><h2>Nueva Promoción</h2> </br>
+* Nombre promoción: Cuadro de texto. </br>
+* Prenda aplicada: desplegable de busqueda. </br>
+* % descuento: cuadro numérico. </br>
+* Aceptar.
+</br>
+<h1>13</h1><h2>Borrar Promoción</h2> </br>
+* Nombre promoción: desplegable de busqueda. </br>
+* Aceptar.
+</br>
+<h1>14</h1><h2>Generar factura:</h2> </br>
+* DNI cliente.
+* Seleccionar Tikets: desplegable multiselección con los tikets del cliente. </br>
+* Generar factura.
+</br>
